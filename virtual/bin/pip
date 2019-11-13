@@ -1,4 +1,4 @@
-#!/home/wecode/Desktop/nisproject/virtual/bin/python
+#!/home/wecode/Desktop/nisprojects/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
