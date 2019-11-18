@@ -1,8 +1,19 @@
-
-{% extends 'all-neighbours/base.html' %}
-{% load bootstrap4%}
-
+{%extends 'all-neighbours/base.html'%}
 {% block content %}
 {{block.super}}
-<h1> Welcome to Neighborhood Information System(NIS)</h1>
+<div class="card" style="margin-left:25%;background-color:azure;width: 50%;margin-top: 10%">
+    <h1 class="container" style="text-align: center">Choose neighborhood</h1>
+    {% for n in neighbor %}
+
+
+
+    <div class="card">
+        <div class="card-body" >
+            <h4><a style="text-align: center;color:black" href="{% url 'neighborhood' neighborhood_id=n.id %}">{{n.neighborhood_name}}</a></h4>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
 {% endblock %}

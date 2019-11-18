@@ -1,0 +1,59 @@
+{% extends 'neighbour/base.html'%}
+
+{% block content%}
+<h1 style="text-align: center">NEIGHBOURhOOD</h1>
+
+
+<div class="container">
+
+
+    <div class="row" style="margin-left:10px;margin-right:10px;background-color: #d7cdcc;padding-bottom:20px;padding-top:20px;">
+        {%for post in posts%}
+        <div class="col-md-4" style="margin-bottom: 20px;">
+            <div class="card-group" style="background-color:white;">
+
+                <div class="card">
+
+                      
+                            <p class="card-title" style="padding-left:50px;">neighbourhood name:<strong>{{post.neighbour.name}}</strong>
+                            </p>
+                    <img class="card-img-top" src="{{post.image.url}}" alt="Card image cap" style="width:300px; height:250px;padding-top:20px;padding-left:20px;">
+                    <div class="card-body">
+
+                        <p class="card-text" style="padding-left:50px;padding-top:10px;"> neighbourhood location: <strong>{{post.neighbour.name}}</strong></p>
+                        <p class="card-text" style="padding-left:30px;padding-top:10px;"> <strong>
+                               
+                               {{post.neighbour.location}}
+                               </strong></p>
+                               <p class="card-text" style="padding-left:30px;padding-top:10px;"> <strong>post Description:
+                               
+                                    {{post.post}}
+                                   </strong></p>
+                        
+                        <p class="card-text" style="padding-left:50px;padding-bottom:10px;"><small class="text-muted">Posted
+                                {{post.post.posted_date|timesince}} by {{post.user.username}}</small></p>
+                        <!-- <div class="mx-auto" style="width: 200px;">
+                        Centered element
+                    </div> -->
+                       
+                        
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+        {% endfor %}
+       
+    </div>
+
+
+</div><br>
+
+
+
+{% endblock%}
+<!--  -->
