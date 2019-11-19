@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import UpdateProfileForm,PostForm,NeighbourhoodForm,BusinessForm
-from .models import User,Profile,Post,Neighborhood,Business
+from .models import User,Profile,Post,Neighborhood,Business,Product
 
 # Create your views here.
 
@@ -113,6 +113,29 @@ def profile(request,user_id ):
 #     return render(request,'all-neighbours/update_profile.html',{"form":form}) 
 
 
+@login_required(login_url='/accounts/login/')
+def search_product(request):
+    if 'product' in request.GET and request.GET["product"]:
+        search_term = request.GET.get("product")
+        product = Product.search_product(search_term)
+        message = f"{search_term}"
+        return render(request, 'all-neighbours/search.html',{"message":message,"product":product})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-neighbours/search.html',{"message":message})
 
+@login_required(login_url='/accounts/login/')        
+def search_location(request):
+    location= request.Get.get('your location')
+    recipient=Neighborhood(location=location)
+    recipient.save()
+    search_location(location)
+    if 'location' in request.GET and request.GET["location"]:
+        search_term = request.GET.get("location")
+        location = Neighborhood.search_location(search_term)
+        message = f"{search_term}"
+        return render(request, 'all-neighbours/search.html',{"message":message,"product":product})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-neighbours/search.html',{"message":message})
 
-#

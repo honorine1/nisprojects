@@ -4,11 +4,46 @@ import datetime as dt
 from tinymce.models import HTMLField
 
 # Create your models here.
+
+
+class Location(models.Model):
+    locationChoose=(
+        ('Gatsata','Gatsata'),
+        ('Nyamirambo','Nyamirambo'),
+        ('Remera','Remera'),
+        ('Nyabugogo','Nyabugogo'),
+        ('kimironko','kimironko'),
+        ('nyarutarama','nyarutarama'),
+        ('muhima','muhima'),
+        ('kigali','kigali'),
+        ('kicukiro','kicukiro'),
+        )
+    location=models.CharField(max_length=40,choices=locationChoose)
+   
+ 
+    def __str__(self):
+        return self.location
+
+
 class Neighborhood(models.Model):
-    neighborhood_name = models.CharField(max_length=30)
-    neighborhood_location = models.CharField(max_length=30)
-    occupantsCount = models.IntegerField(default=0)
-    admin = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    nameChoose=(('biryogo','biryogo'),
+        ('nyamabuye','nyamabuye'),
+        ('nyagatovu','nyagatovu'),
+        ('gatenga','gatenga'),
+        ('kinyoni','kinyoni'),
+        ('kabusunzu','kabusunzu'),
+        ('karama','karama'),
+        ('kabuye','kabuye'),
+        ('batsinda','batsinda'),
+        ('kagarama','kagarama'),
+        ('karuruma','karururma'),
+     
+        
+    )
+    neighborhood_name=models.CharField(max_length=40,choices=nameChoose)
+   
+    location = models.ForeignKey(Location)
+    admin =  models.OneToOneField(User, on_delete=models.CASCADE,null=True)
     def __str__(self):
         return self.neighborhood_name
 
@@ -36,14 +71,16 @@ class Business(models.Model):
     businessName=  models.CharField(max_length=50)
     businessDesc = models.TextField(max_length = 200)
     image =  models.ImageField(default='',upload_to = 'images/', blank=True)
-    location =  models.CharField(max_length=50)
     neighborhood = models.ForeignKey(Neighborhood)
     user = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
     email= models.EmailField(max_length= 30,null=True)
+    location = models.ForeignKey(Location)
 
 
     def __str__(self):
         return self.businessName
+
+
 
 class Product(models.Model):
     prodName = models.CharField(max_length=50)
@@ -55,6 +92,11 @@ class Product(models.Model):
 
     def __str__(self):
         return self.prodName
+
+    @classmethod
+    def search_product(cls,search_term):
+                product= cls.objects.filter(prodName__icontains=search_term)
+                return product
 
 class Profile(models.Model):
     profile_pic =  models.ImageField(default='',upload_to = 'profile_pics/', blank=True)

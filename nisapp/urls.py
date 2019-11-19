@@ -10,6 +10,8 @@ urlpatterns=[
     url(r'^neighborhood/(?P<neighborhood_id>\d+)',views.neighborhood,name = 'neighborhood'),
     url(r'^profile/(\d+)',views.profile,name = 'profile'),
     # url(r'^update_profile/',views.update_profile,name = 'update_profile'),
+    url(r'^search/', views.search_product, name='search_product'),
+    # url(r'^search/', views.search_location, name='search_location'),
    
 ]
 if settings.DEBUG:
