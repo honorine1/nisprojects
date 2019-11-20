@@ -1,0 +1,38 @@
+
+{%extends 'all-neighbours/base.html'%} 
+{% block content %}
+<div class="container">
+ 
+  <div class="row">
+    {% if image %}
+      <h2>Found {{ image|length }} of searched term {{message}}</h2>
+    {% else %}
+     <h2> Found 0 image for the search term {{message}}</h2> 
+    {% endif %}
+
+  </div> 
+
+  <div class="row">
+
+  {% if image %}
+    {% for image in image %}
+      <div class="col-sm-6 col-md-3">
+          <h2>{{image.location_name}}</h2>
+          <img src="{{image.image_path.url}}" style="width:400px; height:400px;" alt="Image">
+          <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search category" name="image">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+            </div>
+      
+          </form>  
+      
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}

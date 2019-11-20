@@ -2,23 +2,34 @@
 {% block content %}
 {{block.super}}
 <div class="container" style="font-family: 'ZCOOL XiaoWei', serif">
-    <h1 style="text-align: center;font-family: 'Bowlby One SC', cursive;margin-top: 30px"> {{user.username}}, Welcome to {{neighbors.neighbourhood_name}} 
+    <h1 style="text-align: center;font-family: 'Bowlby One SC', cursive;margin-top: 30px"> {{user.username}}, Welcome
+        to {{neighbors.neighbourhood_name}}
     </h1>
+    <div class="row">
+        {% for busines in business %}
+        <div class="col-md-12">
+            <button class="nav-item dropdown" style="font-family: 'Lobster Two', cursive;"><a href="{%url 'viewBusinessDetails' busines.pk%}" style="text-decoration:none;color:rgb(255, 255, 255);text-transform:uppercase;font-family: 'Lobster Two', cursive;">{{busines.businessName}}
+                </a></button>                                                                            
+        </div>                                                                   
+        {% endfor %}
+    </div>
     <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-body"> 
+                <div class="card-body">
 
                     <h2>BUSINESSES:</h2>
                     {% for b in business%}
                     <p><strong>Business name:</strong>{{b.businessName}}</p>
                     <p><strong>Business description:</strong>{{b.businessDesc}}</p>
-                    <p><stong>Neighborhood:</stong>{{b.neighborhood}}</p>
+                    <p>
+                        <stong>Neighborhood:</stong>{{b.neighborhood}}
+                    </p>
                     <hr>
                     {% endfor %}
                     <a href="{%url 'new_business'%}" value=""><button class="btn btn-success btn-lg">Add business</button></a>
-                    
-               
+
+
                 </div>
             </div>
         </div>
@@ -27,14 +38,18 @@
                 <div class="card-body">
 
                     <h2>POSTS:</h2>
-                    
-                    
+
+
                     {% for e in post %}
                     <p><strong>Post name: </strong>{{e.name}}</p>
 
                     <p>
-                        
-                        <strong>Post: </strong>{{e.post}}</p>
+
+                        <strong>Post: </strong>
+                        {% autoescape on %}
+                        {{e.post| safe}}
+                        {% endautoescape %}
+                    </p>
                     <p><strong>Posted Date: </strong>{{e.posted_date}}</p>
                     <hr>
                     {% endfor %}

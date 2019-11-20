@@ -43,13 +43,7 @@ def new_business(request):
         form = BusinessForm()
         return render(request,'all-neighbours/new_business.html',{"form": form})
 
-# @login_required(login_url='/accounts/login/')
-# def view_business(request,neighborhood_id):
-#     current_user = request.user
-#     neighbors = Neighborhood.objects.get(id=neighborhood_id)
-#     business = Business.objects.filter(neighborhood = neighbors.id).all()
-#     return render(request,'all-neighbours/business.html',{'business':business,'neighbor':neighbors})
-
+# 
 @login_required(login_url='/accounts/login/')
 def new_post(request):
 
@@ -65,7 +59,7 @@ def new_post(request):
     else:
         form = PostForm()
         return render(request,'all-neighbours/post_form.html',{"form":form})
-
+@login_required(login_url='/accounts/login/')
 def profile(request,user_id ):
 
     current_user = request.user.username
@@ -117,16 +111,16 @@ def profile(request,user_id ):
 def search_product(request):
     if 'product' in request.GET and request.GET["product"]:
         search_term = request.GET.get("product")
-        product = Product.search_product(search_term)
+        products = Product.search_by_prodName(search_term)
         message = f"{search_term}"
-        return render(request, 'all-neighbours/search.html',{"message":message,"product":product})
+        return render(request, 'all-neighbours/search.html',{"message":message,"product":products})
     else:
         message = "You haven't searched for any term"
         return render(request, 'all-neighbours/search.html',{"message":message})
 
 @login_required(login_url='/accounts/login/')        
 def search_location(request):
-    location= request.Get.get('your location')
+    location= request.GET.get("your location")
     recipient=Neighborhood(location=location)
     recipient.save()
     search_location(location)
@@ -134,8 +128,41 @@ def search_location(request):
         search_term = request.GET.get("location")
         location = Neighborhood.search_location(search_term)
         message = f"{search_term}"
-        return render(request, 'all-neighbours/search.html',{"message":message,"product":product})
+        return render(request, 'all-neighbours/searchloc.html',{"message":message,"product":product})
     else:
         message = "You haven't searched for any term"
-        return render(request, 'all-neighbours/search.html',{"message":message})
+        return render(request, 'all-neighbours/searchloc.html',{"message":message})
+
+@login_required(login_url='/accounts/login/')
+def viewProduct(request):
+    products = Product.get_all_products()
+    
+    return render(request,'all-neighbours/product.html',{"product":products})
+
+def filter_by_business(request,business_id):
+  product = Product.filter_by_business(id=business_id )
+  return render (request,"all_photos/location.html", {"product":product})
+
+
+@login_required(login_url='/accounts/login/')
+def viewBusiness(request):
+    businesses = Business.objects.all()
+    
+    return render(request,'all-neighbours/product.html',{"business":businesses})
+
+@login_required(login_url='/accounts/login/')
+def viewBusinessDetails(request,business_pk):
+    businesses = Business.objects.get(id=business_pk)
+    products = Product.objects.filter(business_id=businesses)
+    return render(request,'all-neighbours/productdet.html',{"product":products,"business":businesses})
+
+
+def default_map(request):
+     # TODO: move this token to Django settings from an environment variable
+    # found in the Mapbox account settings and getting started instructions
+    # see https://www.mapbox.com/account/ under the "Access tokens" section
+    mapbox_access_token = 'pk.eyJ1IjoiaG9ub3JpbmUxIiwiYSI6ImNrMzdmd2QzbDBhMjgzbW11MGtscTI2OG8ifQ.ykYCnlagcATteL2taY6NfA'
+    return render(request, 'default.html', 
+                  { 'mapbox_access_token': mapbox_access_token })
+
 

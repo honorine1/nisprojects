@@ -10,9 +10,12 @@ urlpatterns=[
     url(r'^neighborhood/(?P<neighborhood_id>\d+)',views.neighborhood,name = 'neighborhood'),
     url(r'^profile/(\d+)',views.profile,name = 'profile'),
     # url(r'^update_profile/',views.update_profile,name = 'update_profile'),
+    url(r'^viewProduct/', views.viewProduct, name='viewProduct'),
     url(r'^search/', views.search_product, name='search_product'),
-    # url(r'^search/', views.search_location, name='search_location'),
-   
+    url(r'^search/', views.search_location, name='search_location'),
+    url(r'^viewBusiness/', views.viewBusiness, name='viewBusiness'),
+    url(r'^viewBusinessDetails/(\d+)', views.viewBusinessDetails, name='viewBusinessDetails'),
+    url(r'', views.default_map, name="default"),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

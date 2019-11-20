@@ -19,10 +19,17 @@ class Location(models.Model):
         ('kicukiro','kicukiro'),
         )
     location=models.CharField(max_length=40,choices=locationChoose)
+    admin =  models.ForeignKey(User, on_delete=models.CASCADE,null=True)
    
  
     def __str__(self):
         return self.location
+
+    @classmethod
+    def search_by_location(cls,search_term):
+                location= cls.objects.filter(location__icontains=search_term)
+                return location
+
 
 
 class Neighborhood(models.Model):
@@ -43,7 +50,7 @@ class Neighborhood(models.Model):
     neighborhood_name=models.CharField(max_length=40,choices=nameChoose)
    
     location = models.ForeignKey(Location)
-    admin =  models.OneToOneField(User, on_delete=models.CASCADE,null=True)
+    admin =  models.ForeignKey(User, on_delete=models.CASCADE,null=True)
     def __str__(self):
         return self.neighborhood_name
 
@@ -72,15 +79,20 @@ class Business(models.Model):
     businessDesc = models.TextField(max_length = 200)
     image =  models.ImageField(default='',upload_to = 'images/', blank=True)
     neighborhood = models.ForeignKey(Neighborhood)
-    user = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
+    admin =  models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    # user = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
     email= models.EmailField(max_length= 30,null=True)
     location = models.ForeignKey(Location)
 
-
+    
     def __str__(self):
         return self.businessName
 
-
+    
+    @classmethod
+    def filter_by_business(cls, id):
+      product= Product.objects.filter(business_id=id)
+      return product
 
 class Product(models.Model):
     prodName = models.CharField(max_length=50)
@@ -89,12 +101,20 @@ class Product(models.Model):
     prodPrice = models.IntegerField(default=None)
     prodQuantity =models.IntegerField(default=None)
     business = models.ForeignKey(Business)
+    admin =  models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    
 
     def __str__(self):
         return self.prodName
 
     @classmethod
-    def search_product(cls,search_term):
+    def get_all_products(cls):
+        products = cls.objects.all()
+        return products
+   
+
+    @classmethod
+    def search_by_prodName(cls,search_term):
                 product= cls.objects.filter(prodName__icontains=search_term)
                 return product
 
@@ -104,6 +124,7 @@ class Profile(models.Model):
     email=models.CharField(blank=True,max_length=100)
     contact  = models.IntegerField(default=None)
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+
     
    
     def __str__(self):

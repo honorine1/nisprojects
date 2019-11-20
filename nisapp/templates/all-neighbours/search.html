@@ -2,23 +2,29 @@
 {% block content %}
 <div class="container">
   <div class="row"style="color:black">
-    {% if titles %}
-      <h2>Found {{ titles|length }} of searched term {{message}}</h2>
-    {% else %}
-      <h2> Found 0 titles for the search term {{message}}</h2>
-    {% endif %}
+      
+          {% if product%}
+            <h2>Found {{ product|length }} of searched term {{message}}</h2>
+            
+          {% else %}
+            <h2> Found 0 product for the search term {{message}}</h2>
+          {% endif %}
+     
   </div>
   <div class="row masonry-container">
-  {% if products%}
-    {% for a in products %}
+  {% if product%}
+    {% for a in product %}
     <div class="item col-md-4">
         <div class="well">
     <div class="thumbnail">
         <div class="card">
         <div class="card-body" >
-        <p style="color:black"><strong>username:</strong>{{a.user.username}}</p>
-        <p>{{a.title}}</p>
-        <img src="{{a.image_path.url}}"  class=" img-responsive">
+    
+        <p>{{a.ProdType}} {{a.prodName}},  found in {{a.business.businessName}}.{{a.business.businessDesc}} in {{a.business.location}}</p>
+        <p>price:{{a.prodPrice}}</p>
+       
+        
+     
         </div>
           </div>
           </div>
