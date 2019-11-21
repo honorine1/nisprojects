@@ -7,14 +7,20 @@ from .models import User,Profile,Post,Neighborhood,Business,Product
 
 
 @login_required(login_url='/accounts/login/')
+def welcome(request):
+    current_user = request.user
+    # neighbors =Neighborhood.objects.all()
+    # profile = Profile.objects.filter(user=current_user).first()
+    return render(request,'all-neighbours/welcome.html')
+
+
+@login_required(login_url='/accounts/login/')
 def index(request):
     current_user = request.user
     neighbors =Neighborhood.objects.all()
     # profile = Profile.objects.filter(user=current_user).first()
     return render(request,'all-neighbours/index.html',{'neighbor':neighbors})
  
-    # posts= Post.objects.all().order_by("posted_date")
-    # return render(request, 'all-neighbours/index.html',{"posts":posts})
 
 
 @login_required(login_url='/accounts/login/')
@@ -157,12 +163,12 @@ def viewBusinessDetails(request,business_pk):
     return render(request,'all-neighbours/productdet.html',{"product":products,"business":businesses})
 
 
-def default_map(request):
+# def default_map(request):
      # TODO: move this token to Django settings from an environment variable
     # found in the Mapbox account settings and getting started instructions
     # see https://www.mapbox.com/account/ under the "Access tokens" section
-    mapbox_access_token = 'pk.eyJ1IjoiaG9ub3JpbmUxIiwiYSI6ImNrMzdmd2QzbDBhMjgzbW11MGtscTI2OG8ifQ.ykYCnlagcATteL2taY6NfA'
-    return render(request, 'default.html', 
-                  { 'mapbox_access_token': mapbox_access_token })
+    # mapbox_access_token = 'pk.eyJ1IjoiaG9ub3JpbmUxIiwiYSI6ImNrMzdmd2QzbDBhMjgzbW11MGtscTI2OG8ifQ.ykYCnlagcATteL2taY6NfA'
+    # return render(request, 'default.html', 
+    #               { 'mapbox_access_token': mapbox_access_token })
 
 

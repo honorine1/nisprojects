@@ -10,14 +10,17 @@
     <title> NEIGHBORHOOD INFORMATION SYSTEM(NIS) </title>
   {% endif %}
 </head>
-<body class="container">
+<body >
+  <div class="container-fluid">
     
-    {% include "navbar.html" %}
+    {% include "nav.html" %}
     {% block content %}
     {%endblock%}
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}
+     
     {% endblock %}
+  </div>
 </body>
 </html>

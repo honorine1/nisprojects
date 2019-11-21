@@ -50,7 +50,7 @@ class Neighborhood(models.Model):
     neighborhood_name=models.CharField(max_length=40,choices=nameChoose)
    
     location = models.ForeignKey(Location)
-    admin =  models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    admin =  models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.neighborhood_name
 
