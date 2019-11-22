@@ -20,8 +20,8 @@
 </head>
 
 <body>
-
-  <div class="panel panel-default">
+<div class="container" style="background-image:url('https://www.tripsavvy.com/thmb/_qkmh9hHgr_76KiJJM08l5lbrLw=/2125x1411/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-584944092-5a799b6ac6733500374865ae.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:800px;filter: brightness(60%)" >
+  <div class="panel panel-default" style="width:400px;margin-top:50px;margin-left:300px;padding-top:250px;">
     <div class="panel-body">
       <form action="{% url 'new_post'%}" method="post"  enctype="multipart/form-data">
 
@@ -34,6 +34,7 @@
       </form>
     </div>
   </div>
+</div>
 
    {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

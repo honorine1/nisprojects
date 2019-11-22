@@ -3,14 +3,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+    
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudfhttps://github.com/GasaGentille/homedecor.gitlare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootshttps://github.com/GasaGentille/homedecor.gittrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playball&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playball&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Knewave|Playball&display=swap" rel="stylesheet">
+
   {% if title %}
   <title>{{title}}</title>
   {% else %}
     <title> NEIGHBORHOOD INFORMATION SYSTEM(NIS) </title>
   {% endif %}
+  {% block styles %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/base.css'%}">
+  {% endblock %}
+
 </head>
 <body >
+  
   <div class="container-fluid">
     
     {% include "nav.html" %}
@@ -19,8 +52,112 @@
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}
+
      
     {% endblock %}
   </div>
+  <div class="footer" style="font-family: 'Playfair Display', serif; font-size:50px;"  >
+
+      <!-- Footer -->
+      <footer class="page-footer font-small blue-grey lighten-5">
+
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left mt-5">
+
+          <!-- Grid row -->
+          <div class="row mt-3 dark-grey-text">
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-4 mb-4">
+
+              <!-- Content -->
+              <h6>Company name</h6>
+              <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>Neighbourhood Information System</p>
+              <p>(NIS)</p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+              <!-- Links -->
+              <h6 class="text-uppercase font-weight-bold">Our Services</h6>
+              <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>
+                <a class="dark-grey-text" href="#!">Advertisement</a>
+              </p>
+             
+              <p>
+                <a class="dark-grey-text" href="#!">View Business</a>
+              </p>
+              <p>
+                <a class="dark-grey-text" href="#!">Search Products</a>
+              </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+              <!-- Links -->
+              <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+              <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>
+                <a class="dark-grey-text" href="#!">About Us</a>
+              </p>
+              <p>
+                <a class="dark-grey-text" href="#!">Contact Us</a>
+              </p>
+             
+              <p>
+                <a class="dark-grey-text" href="#!">Help</a>
+              </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+              <!-- Links -->
+              <h6 class="text-uppercase font-weight-bold">Contact</h6>
+              <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>
+                <i class="fas fa-home mr-3"></i> Kigali, NY 10012, Rwanda</p>
+              <p>
+                <i class="fas fa-envelope mr-3"></i> nis@info.com</p>
+              <p>
+                <i class="fas fa-phone mr-3"></i> + 250 788 5552</p>
+              <p>
+                <i class="fas fa-print mr-3"></i> +250 111 3456</p>
+
+            </div>
+            <!-- Grid column -->
+
+          </div>
+          <!-- Grid row -->
+
+        </div>
+
+
+        <div class="footer-copyright text-center text-black-50 py-3">© 2019 Copyright:
+          <img src="static/images/twitter.png">
+          <img src="static/images/dribble.png">
+          <img src="static/images/facebook.png">
+          <img src="static/images/g_plus.png">
+          <img src="static/images/skype.png">
+          <img src="static/images/stumble_upon.png">
+          <img src="static/images/behance.png">
+          <img src="static/images/pinterest.png">
+          <img src="static/images/flickr.png">
+        </div>
+        <!-- Copyright -->
+
+      </footer>
+      <!-- Footer -->
 </body>
 </html>

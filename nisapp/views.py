@@ -44,7 +44,7 @@ def new_business(request):
             business_post = form.save(commit=False)
             business_post.user = current_user
             business_post.save()
-            return redirect('index')
+            return redirect('viewProduct')
     else:
         form = BusinessForm()
         return render(request,'all-neighbours/new_business.html',{"form": form})
@@ -61,11 +61,10 @@ def new_post(request):
             post = form.save(commit=False)
             post.user = current_user
             post.save()
-            return redirect('index')
+            return redirect('viewProduct')
     else:
         form = PostForm()
         return render(request,'all-neighbours/post_form.html',{"form":form})
-@login_required(login_url='/accounts/login/')
 def profile(request,user_id ):
 
     current_user = request.user.username
@@ -75,7 +74,7 @@ def profile(request,user_id ):
             profile = form.save(commit=False)
             profile.user = current_user
             profile.save()
-            return redirect('index')
+            return redirect('welcome')
 
     else:
         form = UpdateProfileForm()
@@ -89,28 +88,29 @@ def profile(request,user_id ):
 
     return render(request,"all-neighbours/profile.html",{"user":user,"profile":profile,"post":post})
 
-# @login_required(login_url='/accounts/login/')
-# def update_profile(request):
+@login_required(login_url='/accounts/login/')
+def update_profile(request):
 
-#     current_user=request.user
-#     if request.method =='POST':
-#         if Profile.objects.filter(user_id=current_user).exists():
-#             form = UpdateProfileForm(request.POST,request.FILES,instance=Profile.objects.get(user_id = current_user))
-#         else:
-#             form=UpdateProfileForm(request.POST,request.FILES)
-#         if form.is_valid():
-#           profile=form.save(commit=False)
-#           profile.user=current_user
-#           profile.save()
-#           return redirect('profile',current_user.id)
-#     else:
+    current_user=request.user
+    if request.method =='POST':
+        if Profile.objects.filter(user_id=current_user).exists():
+            form = UpdateProfileForm(request.POST,request.FILES,instance=Profile.objects.get(user_id = current_user))
+        else:
+            form=UpdateProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+          profile=form.save(commit=False)
+          profile.user=current_user
+          profile.save()
+          return redirect('profile',current_user.id)
+    else:
 
-#         if Profile.objects.filter(user_id = current_user).exists():
-#            form=UpdateProfileForm(instance =Profile.objects.get(user_id=current_user))
-#         else:
-#             form=UpdateProfileForm()
+        if Profile.objects.filter(user_id = current_user).exists():
+           form=UpdateProfileForm(instance =Profile.objects.get(user_id=current_user))
+        else:
+            form=UpdateProfileForm()
 
-#     return render(request,'all-neighbours/update_profile.html',{"form":form}) 
+    return render(request,'all-neighbours/update_profile.html',{"form":form}) 
+
 
 
 @login_required(login_url='/accounts/login/')

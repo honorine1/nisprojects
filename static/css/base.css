@@ -1,7 +1,4 @@
-h1{
-    color:brown;
-    font-style: italic;
-}
+
 
 .wrapper {
     display: flex;
@@ -22,6 +19,5 @@ h1{
 .container-fluid{
     background-image:url ("https://www.newtimes.co.rw/sites/default/files/styles/mystyle/public/main/articles/2016/09/18/1474236890RSSB-1.jpg");
 
-    filter: brightness(60%);
     width: 100%;
 }

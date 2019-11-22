@@ -15,7 +15,7 @@
          <h2><strong>{{profile.user}}</strong></h2>
          <h4><strong>{{images|length}}</strong> Post{{images|pluralize}} </h4>
          <h4>{{profile.bio}}</h4>
-         <!-- <h4>{{profile.email}}</h4> -->
+         <h4>{{profile.email}}</h4>
          {%if profile.user.id == user.id%}
         
             <a class="btn btn-default btn-lg" href="{% url 'updateProfile' %}">

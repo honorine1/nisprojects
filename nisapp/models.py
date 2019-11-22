@@ -12,11 +12,17 @@ class Location(models.Model):
         ('Nyamirambo','Nyamirambo'),
         ('Remera','Remera'),
         ('Nyabugogo','Nyabugogo'),
-        ('kimironko','kimironko'),
-        ('nyarutarama','nyarutarama'),
-        ('muhima','muhima'),
-        ('kigali','kigali'),
-        ('kicukiro','kicukiro'),
+        ('Kimironko','Kimironko'),
+        ('Nyarutarama','Nyarutarama'),
+        ('Muhima','Muhima'),
+        ('Kigali','Kigali'),
+        ('Kicukiro','Kicukiro'),
+        ('Gikondo','Gikondo'),
+        ('Gacuriro','Gacuriro'),
+        ('Kacyiru','Kacyiru'),
+        ('Kibagabaga','Kibagabaga'),
+        ('Gisozi','Gisozi'),
+        ('Kabeza','Kabeza')
         )
     location=models.CharField(max_length=40,choices=locationChoose)
     admin =  models.ForeignKey(User, on_delete=models.CASCADE,null=True)
@@ -33,17 +39,26 @@ class Location(models.Model):
 
 
 class Neighborhood(models.Model):
-    nameChoose=(('biryogo','biryogo'),
-        ('nyamabuye','nyamabuye'),
-        ('nyagatovu','nyagatovu'),
-        ('gatenga','gatenga'),
-        ('kinyoni','kinyoni'),
-        ('kabusunzu','kabusunzu'),
-        ('karama','karama'),
-        ('kabuye','kabuye'),
-        ('batsinda','batsinda'),
-        ('kagarama','kagarama'),
-        ('karuruma','karururma'),
+    nameChoose=(('Biryogo','Biryogo'),
+        ('Nyamabuye','Nyamabuye'),
+        ('Nyagatovu','Nyagatovu'),
+        ('Gatenga','Gatenga'),
+        ('Kinyoni','Kinyoni'),
+        ('Kabusunzu','Kabusunzu'),
+        ('Karama','Karama'),
+        ('Kabuye','Kabuye'),
+        ('Batsinda','Batsinda'),
+        ('Kagarama','Kagarama'),
+        ('Karuruma','Karururma'),
+        ('Kinamba','Kinamba'),
+        ('Kacyiru1','Kacyiru1'),
+        ('Kigarama','Kigarama'),
+        ('Kabeza2','Kabeza2'),
+        ('Kibagabaga1','Kibagabaga1'),
+        ('Kagugu','Kagugu'),
+        ('Nyakabanda','Nyakabanda'),
+        ('Niboye','Niboye'),
+        ('Kinyinya','Kinyinya')
      
         
     )
@@ -77,7 +92,7 @@ class Neighborhood(models.Model):
 class Business(models.Model):
     businessName=  models.CharField(max_length=50)
     businessDesc = models.TextField(max_length = 200)
-    image =  models.ImageField(default='',upload_to = 'images/', blank=True)
+    image =  models.ImageField(upload_to = 'images/', blank=True)
     neighborhood = models.ForeignKey(Neighborhood)
     admin =  models.ForeignKey(User, on_delete=models.CASCADE,null=True)
     # user = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
@@ -123,7 +138,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length = 200)
     email=models.CharField(blank=True,max_length=100)
     contact  = models.IntegerField(default=None)
-    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
 
     
    

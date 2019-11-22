@@ -2,7 +2,7 @@
 {% block content %}
 {{block.super}}
 <div class="container" style="font-family: 'ZCOOL XiaoWei', serif">
-    <h1 style="text-align: center;font-family: 'Bowlby One SC', cursive;margin-top: 30px"> {{user.username}}, Welcome to {{neighbors.neighbourhood_name}} 
+    <h1 style="text-align: center;font-family: 'Bowlby One SC', cursive;margin-top: 30px">  Welcome, {{user.username}}. 
     </h1>
     <div class="row">
         <div class="col-md-8">
@@ -31,9 +31,19 @@
                    
                 </div>
             </div>
+            <!-- <div class="col-md-4">
+                <button> <a href="{% url 'welcome' %}">Go Back To THe Home Page</a></button>
+            </div> -->
         </div>
        
     </div>
+    <!-- <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <button> <a href="{% url 'welcome' %}">Go Back To THe Home Page</a></button>
+        </div>
+        <div class="col-md-4"></div>
+    </div> -->
 
 </div>
 {% endblock %}
