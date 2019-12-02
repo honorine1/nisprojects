@@ -25,4 +25,7 @@ urlpatterns = [
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^jet/', include('jet.urls', 'jet')),
+    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),    
+   
 ]

@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     
     'bootstrap4',
+    'jet',
+    'jet.dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'nisapp.apps.NisappConfig',
     'tinymce',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -52,8 +56,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+JET_DEFAULT_THEME = 'light-gray'
+JET_SIDE_MENU_COMPACTS = True
 
 ROOT_URLCONF = 'nisproj.urls'
+
 
 TEMPLATES = [
     {

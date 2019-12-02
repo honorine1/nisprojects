@@ -1,4 +1,158 @@
 
+/*  */
+
+body {
+  background: #fff;
+  color: #798a9a;
+  line-height: 1.7;
+  font-size: 16px;
+  font-weight: 400; 
+  font-family:'Cardo', serif;
+}    
+  
+  
+ 
+.site-hero {
+  background-color: #ccc;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+
+}
+
+  .site-hero, .site-hero .row {
+    height: 100vh;
+    min-height: 800px; }
+  .site-hero:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: rgba(0, 0, 0, 0.5);*/
+   } 
+  .site-hero h1 {
+    font-weight: 400px;
+    margin-bottom: 20px;
+    display: block; }
+    .site-hero h1 strong {
+      font-weight: 800; }
+    @media (min-width: 768px) {
+      .site-hero h1 {
+        font-size: 70px; } }
+  .site-hero h1, .site-hero .lead {
+    font-weight: 300;
+    color: #fff; }
+  .site-hero .lead {
+    line-height: 2; }
+  .site-hero .site-subheading {
+    max-width: 640px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.5); }
+
+.site-section {
+  padding: 5em 0; }
+
+
+.section-about{
+  font-weight: 400px;
+  font-size:20px;
+  font-family: 'Cardo', serif;
+  margin-bottom: 30px;
+
+  
+} 
+
+#about2{
+  font-size:20px;
+  padding-bottom: 20px;
+}
+#about1{
+  width:500px;
+  height:250px;
+}
+
+#about5{
+color:#272626;
+}
+.row{
+  margin-bottom: 20px;
+}
+.card-title{
+  font-family:'Cardo', serif;
+  text-align: center;
+}
+.container1{
+padding-left:20px;
+
+}
+
+.site-heading site-animate{
+  position: absolute;
+  top: 50%;
+  left:50%;
+ 
+  /* transform: translate(-50%, -50%); */
+}
+
+/* footer */
+footer{
+  color: white;
+}
+footer a{
+  color: #bfffff;
+}
+footer a:hover{
+  color: white;
+}
+
+.footer-bottom{
+  background: #3d6277;
+  padding: 2em;
+}
+.footer-top{
+  background: #2d4958;  
+}
+.footer-middle{
+   background: #3d6277;
+  padding-top: 2em;
+  color: white;
+}
+/**Sub Navigation**/
+.subnavigation-container{
+  background: #3d6277;
+}
+.subnavigation .nav-link{
+  color: white;
+  font-weight: bold;
+}
+.subnavigation-container{
+  text-align: center;
+}
+.subnavigation-container .navbar{
+  display: inline-block;
+  margin-bottom: -6px; /* Inline-block margin offffset HACK -Gilron */
+}
+.col-subnav a{
+  padding: 1rem 1rem;
+  color: white;
+  font-weight: bold;
+}
+.col-subnav .active{
+  border-top:5px solid orange;
+ background: white;
+  color: black;
+}
+/* footer */
+
+/*  */
+
+
+
 
 .wrapper {
     display: flex;
@@ -21,3 +175,44 @@
 
     width: 100%;
 }
+/* .site-footer {
+    padding: 4em 0;
+    background: #000; }
+    @media (min-width: 768px) {
+      .site-footer {
+        padding: 8em 0; } }
+    .site-footer .border-top {
+      border-top: 1px solid rgba(255, 255, 255, 0.1) !important; }
+    .site-footer p {
+      color: #fff; }
+    .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5 {
+      color: #fff; }
+    .site-footer a {
+      color: rgba(255, 255, 255, 0.5); }
+      .site-footer a:hover {
+        color: white; }
+    .site-footer ul li {
+      margin-bottom: 10px; }
+    .site-footer .footer-heading {
+      font-size: 16px;
+      color: #DC3545;
+      text-transform: uppercase;
+    }
+ .site-footer .footer-heading {
+        font-size: 16px;
+        color: #DC3545;
+        text-transform: uppercase; }
+.form-control {
+            height: 55px;
+            background: #fff !important;
+            font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+.form-control:active, .form-control:focus {
+              border-color: #DC3545; }
+            .form-control:hover, .form-control:active, .form-control:focus {
+              -webkit-box-shadow: none !important;
+              box-shadow: none !important; }
+              .form-control {
+                border: none;
+                border: 1px solid #E6E6E6; }
+                .form-control:hover, .form-control:active, .form-control:focus {
+                  border: 1px solid #666666; } */

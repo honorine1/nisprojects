@@ -1,89 +1,32 @@
-{%extends 'all-neighbours/base.html'%}
+{%extends "all-neighbours/base.html"%}
 
- {% block content %}
- <br><br><br><br>
- <div class="container">
-   {% if profile%}
- 
-   {%for profile in profile%}
-     <div class="row" style="padding-bottom:20px;font-family:'Kalam', cursive">
-     
-       <div class="col-md-4">
-         <img class="center-block img-responsive img-circle" src="{{profile.profilepic.url}}" alt="" style="width:170px; height:170px">
-       </div>
-       <div class="col-md-8">
-         <h2><strong>{{profile.user}}</strong></h2>
-         <h4><strong>{{images|length}}</strong> Post{{images|pluralize}} </h4>
-         <h4>{{profile.bio}}</h4>
-         <h4>{{profile.email}}</h4>
-         {%if profile.user.id == user.id%}
-        
-            <a class="btn btn-default btn-lg" href="{% url 'updateProfile' %}">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Edit Profile
-              </a>
-          {%endif%}
-         
-       </div>
-     
-     </div>
-   
-   {% endfor %}
-   {%else%}
- 
-       <div class="col-md-4">
-         <img class="center-block img-responsive img-circle" src="../../../static/images/bad-profile-pic-2.jpeg" alt="" style="width:170px; height:170px">
-       </div>
-       <div class="col-md-8">
-         <h2><strong>{{user}}</strong></h2>
-         <h4><strong>0</strong> Post </h4>
-         <h4>An Awesome Bio Will Appear Here</h4>
-         <a class="btn btn-sm btn-primary" href="{% url 'updateProfile' %}"> Update Profile</a>
+{% block content %}
 
-          
-           
-           
-       </div>
-     
-     </div>
- 
-   {%endif%}
- 
-   
-     
-   
- <hr>	
+<div class="container">
+  {% if profile%}
 
- <div class="row">
-    <div class="container">
-    {%if project%}
-    {% for image in project%}
-    
-      <div class="col-md-4">				
-            
-           <div class="hovereffect thumbnail">
-              
-                    <img class="img-responsive" src="{{image.image.url}}" alt="">
-               
-            
-          </div>
-  
-      </div>
-    
-    {%endfor%}
-    {%else%}
-      {%if profile.user.id == user.id%}
-        
-          <h3 class="text-center">You havent posted any images yet. Get started by posting one here</a></h3>
-      {%else%}
-        <h3 class="text-center">This user hasn't created any posts yet.</h3>
-  
-      {%endif%}
-    {%endif%}
-  
+  {%for profile in profile%}
+  <div class="row" style="padding:20px">
+
+    <div class="col-md-4">
+      <img class="center-block img-responsive img-circle" src="{{profile.profile_pic.url}}" alt="" style="width:200px; height:250px">
     </div>
+    <div class="col-md-8">
+      <h1><strong>{{profile.user.username}}</strong></h1>
+
+      <h3>{{profile.bio}}</h3>
+      <h3>{{profile.contact}}</h3>
+
+      <a class="btn btn-sm btn-primary" href="{% url 'update_profile' %}"> Update Profile</a>
+
+
+
+
+
+    </div>
+    {%endfor%}
+    {%endif%}
   </div>
   
- </div>
- 
- 
- {%endblock%}
+
+{%endblock%}

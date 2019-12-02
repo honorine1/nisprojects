@@ -1,15 +1,72 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .forms import UpdateProfileForm,PostForm,NeighbourhoodForm,BusinessForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login,logout
+from .forms import UpdateProfileForm,PostForm,NeighbourhoodForm,BusinessForm,NewProfileForm,UserUpdate
 from .models import User,Profile,Post,Neighborhood,Business,Product
 
 # Create your views here.
 
+def signUp(request):
+    currentUser=request.user
+    if request.method=='POST':
+        form=UserUpdate(request.POST)
+        # profileform=CreateProfile(request.POST)
+        nform=NeighbourhoodForm(request.POST)
+        if form.is_valid()  and nform.is_valid():
+            user=form.save()
+            
+          
+            #neighbour
+            neighbour=nform.save(commit=False)
+            neighbour.user=user
+            neighbour=nform.save()
 
-@login_required(login_url='/accounts/login/')
+            username=form.cleaned_data.get('username')
+          
+            
+            return redirect('logIn')
+    else:
+        form=UserUpdate()
+        nform=NeighbourhoodForm()
+
+       
+    return render(request,'registration/registration_form.html',{
+            'form':form ,
+            'nform':nform
+        })
+
+
+def logIn(request):
+    if request.method=='POST':
+        form=AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user=form.get_user()
+            print(user.id)
+            #query join()
+            # neighbors=Neighborhood.objects.filter(admin_id=user).first()
+    
+            login(request,user)
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                # return redirect('neighborhood',neighborhood_id=neighbors)
+                return redirect('index')
+    else:
+        form=AuthenticationForm()
+    return render(request,'registration/login.html',{'form':form})
+def logOut(request):
+    if request.method=='POST':
+        logout(request)
+        return redirect('logIn')
+    return redirect('logIn')
+
+
+
+# @login_required(login_url='/accounts/login/')
 def welcome(request):
     current_user = request.user
-    # neighbors =Neighborhood.objects.all()
+    neighbors =Neighborhood.objects.all()
     # profile = Profile.objects.filter(user=current_user).first()
     return render(request,'all-neighbours/welcome.html')
 
@@ -20,7 +77,13 @@ def index(request):
     neighbors =Neighborhood.objects.all()
     # profile = Profile.objects.filter(user=current_user).first()
     return render(request,'all-neighbours/index.html',{'neighbor':neighbors})
- 
+
+# @login_required(login_url='/accounts/login/')
+# def joinFunc(request,neighborhood_id):
+#     join=Join(neighborhood_id=neighborhood.id, user_id=current_user.id)
+#     join.save
+    # profile = Profile.objects.filter(user=current_user).first()
+    # return redirect('neighborhood',neighborhood_id=neighborhood_id)
 
 
 @login_required(login_url='/accounts/login/')
@@ -65,7 +128,9 @@ def new_post(request):
     else:
         form = PostForm()
         return render(request,'all-neighbours/post_form.html',{"form":form})
-def profile(request,user_id ):
+################
+@login_required(login_url='/accounts/login/')
+def profile(request,user_id  ):
 
     current_user = request.user.username
     if request.method == 'POST':
@@ -81,13 +146,14 @@ def profile(request,user_id ):
 
     user=User.objects.all()
 
-    post = Post.objects.filter(user__username=current_user)
 
 
     profile = Profile.objects.filter(user__username = current_user)
 
-    return render(request,"all-neighbours/profile.html",{"user":user,"profile":profile,"post":post})
+    return render(request,"all-neighbours/profile.html",{"user":user,"profile":profile})
 
+
+# @login_required(login_url='/accounts/login/')
 @login_required(login_url='/accounts/login/')
 def update_profile(request):
 
@@ -110,6 +176,59 @@ def update_profile(request):
             form=UpdateProfileForm()
 
     return render(request,'all-neighbours/update_profile.html',{"form":form}) 
+
+
+###############################
+# @login_required(login_url='/accounts/login/')
+# def addprofile(request):
+#     current_user = request.user
+#     if request.method == 'POST':
+#         form = NewProfileForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             profile = form.save(commit=False)
+#             profile.user = current_user
+#             profile.save()
+#         return redirect('viewprofile')
+#     else:
+#         form = NewProfileForm
+#     return render(request, 'all-neighbours/profile.html', {"form": form})
+
+
+# @login_required(login_url='/accounts/login/')
+# def viewprofile(request):
+#     current_user = request.user
+#     profile = Profile.objects.filter(user = current_user).first()
+#     return render(request,' all-neighbours/viewprofile.html',{'profile':profile})
+# def project(request):
+#     name = request.POST.get('your_name')
+#     email = request.POST.get('email')
+
+#     recipient = NewsLetterRecipients(name=name, email=email)
+#     recipient.save()
+#     send_welcome_email(name, email)
+#     data = {'success': 'You have been successfully added to mailing list'}
+#     return JsonResponse(data)
+# def update_profile(request):
+
+#     current_user=request.user
+#     if request.method =='POST':
+#         if Profile.objects.filter(user_id=current_user).exists():
+#             form = UpdateProfileForm(request.POST,request.FILES,instance=Profile.objects.get(user_id = current_user))
+#         else:
+#             form=UpdateProfileForm(request.POST,request.FILES)
+#         if form.is_valid():
+#           profile=form.save(commit=False)
+#           profile.user=current_user
+#           profile.save()
+#           return redirect('profile',current_user.id)
+#     else:
+
+#         if Profile.objects.filter(user_id = current_user).exists():
+#            form=UpdateProfileForm(instance =Profile.objects.get(user_id=current_user))
+#         else:
+#             form=UpdateProfileForm()
+
+#     return render(request,'all-neighbours/update_profile.html',{"form":form}) 
 
 
 

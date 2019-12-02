@@ -2,7 +2,7 @@
 {% block content %}
 {{block.super}}
 <div class="container" style="font-family: 'ZCOOL XiaoWei', serif">
-    <h1 style="text-align: center;font-family: 'Bowlby One SC', cursive;margin-top: 30px"> {{user.username}}, Welcome to {{neighbors.neighbourhood_name}} 
+    <h1 style="text-align: center;font-family: 'ardo', serif;padding-left:50px;margin-top: 30px"> {{user.username}}, Welcome to {{neighbors.neighbourhood_name}} 
     </h1>
     <div class="row">
         <div class="col-md-8">
@@ -19,7 +19,7 @@
 
                     <h2>Available products:</h2>
                     {% for prod in product%}
-                    <p><strong></strong>{{prod.prodName}}</p>
+                    <p><strong>{{prod.prodName}}</strong></p>
                     <p><strong>Business description:</strong>{{prod.ProdType}}</p>
                     <p><stong>Neighborhood:</stong>{{prod.prodPrice}}</p>
                     <hr>

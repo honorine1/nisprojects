@@ -1,6 +1,7 @@
 {%extends 'all-neighbours/base.html'%}
 {% block content %}
 {{block.super}}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,56 +12,166 @@
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css" type="text/css">
   <link href="https://awesomity.rw/web/css/animate.css" rel="stylesheet">
-  <title>NIS</title>
+  <link href="https://fonts.googleapis.com/css?family=Anton|Cardo|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/flexslider.css">
+<link rel="stylesheet" href="fonts/icomoon/style.css">
+
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/base.css">
+
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+
+
 </head>
 
 
 <body>
-  <div class="container-fluid">
-    <div class="container1" style="background-image:url('https://www.explorerwandatours.com/wp-content/uploads/2019/08/Kigali-City-750x450.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:600px;filter: brightness(60%)">
-
-
-
-      <div class="heading" style="padding-top:300px;text-align: center">
-
-        <h1><a style="color:white;font-size: 60px;font-style: oblique;font-family: 'Playfair Display', serif; " href="http://127.0.0.1:8000/index/">Explore
-            your Neighbourhood !!</a></a></h1>
-           
-            <div class="col-md-6"style="margin-left:300px;font-size:30px;">
-
-                <form class="navbar-form" role="search" action="{% url 'search_product' %}">
-                    <div class="input-group">
-                        <input type="text" class="form-control mr-sm-2" placeholder="search any products here" name="product" style="height:50px; font-size:20px;">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit" style="height:50px; width:150px;">search</button>
-                        </div>
-                    </div>
-                    
-                </form>
-
-
-
-
-
-                    
-
+  <div class="row">
+    <div class="col-md-12">
+        <div class="header">
+            <div class="row intro-text align-items-center justify-content-center">
+                <div class="col-md-10 text-center">
+                  <h1 class="site-heading site-animate"><strong>Discover your Neighborhood</strong></h1>
+                  
+                  <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More about Us</a></p>
+                </div>
+            </div>
+          <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="/static/image/compound.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="/static/image/nyarutarama.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://africansafarijourneys.com/wp-content/uploads/2019/04/Kigali-944x480.jpg" alt="Third slide">
+              </div>
+            </div>
+          </div>
+    <!-- <section class="site-hero" style="background-image: url(https://africansafarijourneys.com/wp-content/uploads/2019/04/Kigali-944x480.jpg);height:600px;background-repeat: no-repeat;background-size:cover;" id="section-home" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row intro-text align-items-center justify-content-center">
+          <div class="col-md-10 text-center">
+            <h1 class="site-heading site-animate"><strong>Discover your Neighborhood</strong></h1>
+            
+            <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More about Us</a></p>
+          </div>
         </div>
+      </div>
+    </section> -->
+            
+          </div>
+    </div>
+  </div>
+ <!-- about section -->
+
+
+
+
+
+ 
+ <!-- Section: Features v.3 -->
+<section class="section-about"id="section-about">
+
+  <!-- Section heading -->
+  <h1 class="h1-responsive font-weight-bold text-center my-5">About Us</h1>
+  <!-- Section description -->
+  <h2 class="lead text-center w-responsive mx-auto mb-5" id="about2">NIS is a Web Application that is designed to help people  to  get  needed product  in  neighborhood
+    they are not familiar with,also it is very helpfull when you  want to advertise your Business</h2>
+   
+
+  <!-- Grid row -->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-lg-5 text-center text-lg-left" id="about1"style="padding-left:70px;">
+      <img class="img-fluid" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUWFRkYFxgYGBgYGBgXFR0XGBUXFxgZHSggHRolHRYWITEiJSkrLi4uFyAzODMtNygtLisBCgoKDg0OGhAQGy8mHyUrLS0tLS0tLS0tLS0tLi0tLS0tLS0tLS0tLS0vLS0tLS8tLS0tLS0tLS0tLS0tLS0tLf/AABEIAKgBKwMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQIDBgABB//EAEEQAAIBAgQDBgMGBAUDBAMAAAECEQADBBIhMQVBUQYTImFxkTKBoRRCUrHB8BUj0eEzQ2JykoKi8QdTVJMWJCX/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAwEQACAgEDAgQEBQUBAAAAAAAAAQIREgMhMUFRBBMiYTJxobEUgZHB8CNCUtHh8f/aAAwDAQACEQMRAD8A1PD8fMdDWqw5RwdANP3vWEwFzMARoRzppheIx+tdLjkZJmhbBWlEzr9PaikbPlhhHMTr+/KlvDE7wT59Ka2sIo3UT1rKTrllovUada9BrzbYV4bg2OhNZlE66urqAOqLKDuAfWpV1ACjE8JGsECaVXsDDQSJ+lam7bDCDQ5wCRGv0rWOp3IcDM4nBssafrQrKelbdLYiN9Ipe3B9ZBEdDVLUXUlw7GT+zsa87phWs/hZkwAPnVQ4O3kPUzV+YhYszaq413pjhOJFVykx16n500/grTuv5VzcHc6+GR85ozixqLAzxDNl8RldjzqF2+33juKZYfCOpk21j5UyyIRqqx0gVDmkOjMu7svhM5aHTEsN6eX8LbBlTl6ilGMww5GatOxNHfawTvV73rZ8j5UluW4qENVE2M3KjUGhLl+DQxB9a9yHyoFZcbwrhiBQz1USadBY1t3lIr3MvWlEtyqao34qKCxsLgqRuRypUhI5zVrXzU0Owz7QByqTYsUqa6aouXmoxHY2fEDrVD4npQKYrSoi+elOhWXXLxqgu1E27JYSKl9kaiwGGD7O3LeuWRzHOn+D4LagGDPMTp6UXhcbmnNCx5/1q/7QsxmHuK5nKRqkjxciCNB5TU0uA7EGqcRhUuDX5EUjvI1t/CTI/fzoUbG3Q+KvMggjpUwx/DHzBpDb4kwMmpXeJTzp4MWQ9U9SKgcUm2YVmXx/maqbEzrNUtIWZrBiF6ivRd57DrNZD7Y21W2bzH70UeULM1iuDsRUqzShgd5pg1+Phcn1qXplZDUmqrl4yAsH51Tg7hbRxykedXHBrMiQfKpquRklZ+YHvVwNQNvzIPWq7tknUHXn5ikBViMdlMBZoK/xNuWlHnAJ0Pv9KW4rhrgysEdOY+VXHEl2UvxdyIIoRscaZ2cDIBPtUHwE6Ba0TiLcVNim6UPcuGnP8PMRlb5CongjRJ9udVkhUxAZqBNO3wMfcPrQlyz5U7E0LDIriTRpwrnlpReH7PXH1JCjzobSJxYlZqiXHStKOyh0m766f3qC9lDOrAil5kR4Mz0rXmnnWpt9lV5k/Kil7L2ere4/pS8yI8GYrN5VHKetbtOzdkH73uP6VP8AgVjkNfWl5qH5bMPaU1euHB3JrXHgnIFfagMVwe6uyz6UZpjxEbYFeRoS9YAp83DLsSV/r7Utv+HcCqUhNAtiR6UT39B3bvShu9NOrFZ9BEEkPbUawuXxaeYGs/Ki7dpCBA05SP661m8PxBXfMNNToDy8qd4biSkQZB/fOsJRaNE0FrbCg5VA9IFK8RZctJWfrTVbgOxqRaoTobQmSyJ8SwKhieFE/CPaI+tOiAdd6ru3svKR5cqpTfQWKMxiuHFD4gflVaYNT96n78RB3UH1pZdZSZAitVJvklpC25YA2auRiKYFUI1AnrQd20Pu1aZDRfbvdasz9KWu5FU943KnQWPLeNcaAkUQMbcn/E/Ks19qerbeOIpOAKZojxG71HtVDcVuA70uXiA5jWrxikbca0sV2KsIHG3mi7XFCTM78qjhuGW2XMWAH1qZw1vYOT00qHj2HuOLd0NzFSVY2FICXXUMD+dGYfiUL4jJ/fOocOxWQ0eYMUo72+GJ1iddNKvu8TAiCII9jXfxOI2pJNdAbQWbwZfDr66UlxmFaZHhnf16jSmK8UXpV64sHlQriGzEvDuFAse8JeOQJj5mnhwo0A0A5Ch8RxEJ0oR+MZtIIpvJ7hsh3XUptEsY73TqKKe0BE3Gj1qaHYWTQz4gkkLyqt1twfF9aqxBgeAjyoSGU4jE3NgRNe4azdb4mAj3pbdDyZiaPwF8ffblVtUtiRmmHYQc5JoTFX2+8CPShruPZT4TND/aS0z/AEpJDbDcPLTDNQ+O4aIkxrrtXYTFhTziOVXtxQbbjzo3vYQm7m0N0qk2LXSmGIdG1jWgii9KpMVAowptOYg8tP0pqiCAQ3KSI2+dJLmJaZg+fSibWOI/pVOyVQ/s4/w5Yg9RXLePNppTbxemwq63fSCxOvIdfWoxLyDWxp25e1c+L0iaUverrdwHfSngLItfECdqqZxXFelUNbatEiLLK41St6K8fECqCyx7dQ7mp2fFtyoi1hzudBSboWwC1qo90KMvWo5g+lDGnYmDm3BohWXlVdwVSRTJuhouMgRNSTHKaUTUGmjEeY5uXZ+8PSoM8c6VrdNXd7zoxoM7DDcqaYmhRiARUXbpSodjEYqrLeNI50ozEVxY0YhkM72Ik1TduQKDW8RU/tZOhpYjyLVxkc6JbisrBpO69KhFPFMnJjF+IedSt8WYaUpNeg08EGTGP8QJJNXLj5pOa9VqHBApsZXsWR0qteIdaHKaa61SQKWKHkxl9uA2NTOPBpdbyRrXjWV3BpYoq2GPiDyIqsYhqELxsamMRRiFji4oj9KAu5fSr5NWWiSddvlWfA7sBtYgDrRS3fI0Z3AJ0+oql7R150s0x4tFXyioVNbrKfhry7endYNWmSwjDrpNWMlLhco1eImNgT1Imh2JNHmg0Kg0PcsqdtKmL2cFgNNj0qsmhWDL7Sqo0qL3G8vehmuCq2aqxJcguxcYHYH51ZdE7CD+dLO8jnUhfPWniGRcTNVmvWuA+tcXqkSQA1jnUilcG13Ne5/OknYNFZWq2FWlqg7VaZNFRrg5FWhPMVUwp2Ki+1f60WlwERy8xQFlTRAnyqJJFxbPbqDlVRFWZ664oPrQMry1HLV9ta66sUWFA7LUCKIOtUsKBFZBrwz0qZFcFNVYEe+qDmvXEVVccDmJ6TqY6CnsKz014HNDLjElgTsY2P8ATrIq3vlOxHvRaY9yxz51XmqDGvAfKihWG2u0do7q4+QP60yw/ELTbXF9CYPsa+dW71EpixzrPCI8mfSbb9DNWlp5V86s40ciRRtviTbC4f8AkRUPSXcpaps+7868vMgBJnT9TA/OsunE7n42/wCRoMcbzu1jvQbn3llpA0OoPqPes5pQ5ZpBuXCNdxH+XauON1RiJHMDSsTgONXL2YkQRBOpYS1tLnhiAB44+VXY7F3NQQbgMKRnCwCJJ139KFwn2dAwRsoO+oaIVUB30hUGlZ5pmii0CfxS4bxTMAA7DQckS2evW4fpRmO7Q4m0VS1azq1tWLeIwWEkaKfzoK3btm8zI5clnaAIAD90N9jAt9etIcIqd2jMiSMykstlWJGu99gx8LKNztTXsJ8GrwXFb7jvbgKr4wUOZSx8JDDMBAEn+nQ1eOE93CAh+ZmQcwXoBz9dKR4QqtpMuUZi7aG2NkIMZHg/Kas4cJ+z+rdJgOx9eVPJomkbXhqC7aS5qM4mOlGNw5YmW28qz3BeLOli0gykBB0/Spt2lFxGUgQ1xrO33gJPPbzq9SU4xuyYKDdAFi6pYDvNSQPj6/OqeJcRuI/hjczvsOnio/uCOR9qy/HbGIfLkRxG+nOF1+EyNG9/kPO8Nqc2zp8RF1cUNLfG3+8I05Eb/wDIQKM4Njmu3co21Op30G/iP7ArErhMYAJW9t59Dp8O/wCvvT/sjfu2nNy6jjcAGSdQII0HnvXapRW9nIs26aNs+Ff9mqTaaktvtTdBLOqlQYhQR05metPMFxxHUMQV3015f7gD9K3jqthLTSId2/Svcj9KJ/iadT9P61x4nbPX2/vV5y7EYx7gkP0OlSy3OjexpX2m4qLfdle8GYEgo+Q+ExBlWEa0lbtKwRgpuZjszX5K6icoNor7qd+VQ9V9i/LXc12d+hqtcSTtr9dqXcIxVy7hwzMSZfUkMTGwkIo/7fesT2YOXFWlEyVM66EZTofnB25Ueb7B5fufS++bpXhdulWpi0AE7xr61IY9B/4q8n2JpdweWHKuN00QeJW/Oq24pb8/mKMpdhYruV97UTdrm4na8/aqrnEbXU+xqr9gr3AeK8SyPaU/5jZfYrH5ml/H+NPbe2EZRmOo0J3A089aC7a31IsFDqLhidOQ/pWQ420m3MSZJOaQYmQTynp5Vz6q9dmum9qNlwkd7bW4YYszkmBqczTWbxgIu3BJ+Jvoxij+zvFxbsohScjOdDofE/01oLFvndnAiXYwd/FrFJIps0fYgeC4P9S/kR+laErWc7EXAvfA6fAev45/StP9oTr9D/SuvTXpRyzl6jHLaP4Y85H6zVosnqD/ANQmpZIgZG30PX0zVZdxZXeANPE8DfbWQKxzN8Ad0YKSBsPl9DVlpSeevn9ai3ELSlSxUTryGkTPKd9tT5URh+J4fuWdmWW+ANroCwYgEE7VD1UHlluFV86ztI9PlS7gif8A9G8eQtsdFAXTIsA78tqccMe3cGdWDOsHQEbk6gxB+E1fZ4Pas4hryMX7wMHLGMoY5vCuXUzHSufU1U3+Rtp6bSK+MqmdA3ca3RAuhjOifBl+94ufUUGQn2HGsncGVuAmyGGpT7+Y6vrypw/FAtxVCqVuMAGYkeMrooGWeW+1Ku0vaC29nEWFie6uDw5jqqmdSoEaRIJrLol+5Vq2Z7sZb8bRyw7QI6ljpXvDMLftpcXI6iQRAdRzX/Jtkk6puOR2qfYthmvHTSwupJYQ2kEaRz0HWocR4oi4e1cFplzZhlLXJHcMUUHxe88+tb3uzJfCvz+5oO5fuU1hsrg52uKJIEZjcCnn96PQ17ggFFhSy+FWYww2BvAsIOo03A25mNEroRcyoqhBcXOSASVTNu1yZIMxGuulRvNcVbIa5qUDHKS0g3FZT/LBGUqjidqBjmxhrsAprC6wC3uWMR86r4angtT97GXD/wBrzz8qUYbiVxQtvIXIUCTnzEgCSQVkazvTfs9bvm7bzW/CDLMRl3DbCBOsfI1lq6zxaro/sbR0FtKw+9wHDnbEXRy0uHkCTv8A7WPyPIUr4ng7NooO9vuGU+JbwEfDl0ymZDAg/nWuaT8WFg+L8J+655DnJX/rrLdqkQPai3kIQgCI0y2oiOS6L5RXHCcnJKy5RVPYbcFCNhpGaC5/xCC2/XpV62V6D2FVdl7f/wCkvOXY/wDcaov8MBS8pvuO8cEsGg24K+FTyGm3maznWbXuaR+FBptL0HsKreyoB0HsKOW3Wf7bCLVs6yLoI+GJAY65uUTtrU6fqkkOW0bIrxBDpqD0jaavN9Rz/fkKzx45aMFrUyOTxG4jbyqzEceSJRHmB8TAiAdY8M8p+Xt7L8VHg8zyRr2mdO7wxLqoK3ILHKPi5EkdOtJbOEZ5Fts/M5MzRvB8OIHU1PiXaMPYsgqUZCwIDtqD4plGHsZqHZ3teLLsSrMpWDmdc0g6EHKNPWanzY9y9lsbLszaIwwB3D3Ad9wRIMu5n5+1YnhFsWsuNYzbtFUZVHiJZdCJIEa9a0nZrtB3t5rayUdrjxp4CxLDxaTMEQR016qOKYX7PgnsXmQXGuW2CBwWygRO2g03impp7g+57c7YWjcyhbmrxrlXcwOZ608wLi7ZS6CVDzpmB2+Q9qwXDii3bbPqocE6ToPKdY06Vp+1dxbPd27amIYhB3tsBRrKgXAu/SrlqZNKDIhFU3JBWEx63Xe3baWRirAzyJA1AI1gxUw7aSpk8pE9etZbAYzM6qy3ELOqmHur8REks7sOc6jlW3s9ntPDfvaEEhjbZYPIN3evy8utD1pQ+IqOlGe8QJWJ+630/Pap5l2Oh6UZjcGlpVZQP8QKcxAEayZEa6VLFcRwgBZrRQ/7lIJ5Qc3nTXiOopaSXJlu1wHd2ypmLmvpB/tWU4mwdFbUCddI8QSU5QZrdLxlXchLSlIIMXGDAHdgQdz6DYUm7U5WtO5tw0AEy0GEgFQWI0gbAVMp5uzNakIbCTC4nLmBOzsPctGkedRt46Sy8wdNd+tB8Ls99ilQsV7y7E7kEzBI0nX9a2rf+ntzcYok67qRuAOp6CfIAcqh60Y8nQtNvgq7IXZa7/tU+xP9afJdQiQwI9aU4bsfirauFuWzngHVhoDMfCaHXshiwIHd/Jv7VS8ao7Izl4aTdlvGuEY26PBbS2NJEx8IkbknYTSrFYO46DvGAO/xQumnPUnbU9a3eJtMv+LeMGTqSJ018KwSI8qgcFbjRLZgb5ABHPcfpXK8mdVR7Gf4T2Q7+ytx7kZkQZcgOUhVAIYmZ2mIBjajrf8A6dWiFFy6WCrlGVcmgJOviOssdfOo49SCciWEXk+QOWEEnKggAyjjUx4aL4bw4WovXu8ZUdSCQB4iwQEIgUBQSCZnryqXa6i27DjhvZ6zYEIpGkfE3KfPzNKOPXAGe2jX2IA8FsGFCwSWeC2o5gj6VqkxlsgkOpA3OYaevSst2h4goFwNiYBzZLdnVm03uGRGxG/T5kcurG4o+YXcewfNmcOs8zKkbgTzGtRwmMY5uYKEHWPDEGdRA1/SvDb7wwiMsmOZLHlPmZHlv60enCbaEZzmk8iQfOARP5bVTcI8mNJHuB4uU0BCgwIEbKZ1HOI2NMhxa7dcBbYZQSI7tAFnUwcsCSSd5JNU2+BpeuFcwVQDr4Q2aRsqsQRyiRsa1PCOGW7dvICSC2Zj1jYeQiNKElzEpQbKcJgLmfxEMxK63FzsAueCJAUHxnlpp1MjcRtXSUtC67NlLMASPCoYAkLpJkAbDQelNuL8UXD5TlLOTooMwDzYRPIaUPwXBXmQvecpnIghJcKdRLKBG50mNjAqvMKcVdFHD+zuJBW5bbumC/5oW4DIiIgkHz5aaU+wGBxSOr3sUhtrJYCyiaQdc/KND8qV4vGIWPeXXm2wWTmALLos5dCZMx1g71Xd4yTAF5jM6GQNPxBjt66VGs54tLh+/wDwUaTTNfdtsZyYkbNuFaCUMc+RIb0FZrtcpFy1nfQq0HQaRbDctZIJ+dI8Zxu4xCs1tl1zEKDMjK2igT4Rl0iaR8RJuaG4MzHQSQNtNfQbRzrmhptSs0lqJqj6V2ZxVkYZLYuLmztCkrm1ZiNPQj3qnF4TB91iM5/ltdm9q/8AiSunh1GoXavnWHtPaVjmEqdAGjMTIzAmCMoE+ek0ZwfjbK4LqblljLq0MGJ5nqRE68xTlpu3JP8AQFq7JM+rBaz/AG2aLVsfiugDVZmDoM2hJ1EedaQCkXbB8qWjI/xRoSADofDqDv8AL1rn8O/6iOjVXoZhxwa6XKslyApy5QBkAMZTyJ331gHeaV/YrttipjQXJ1Bg28ymQJK6xpHnrW9ui6wuZGe04ElSczRsW3O2nM7DSgEt3i385w9p1GUfykMgKc2bu53nWREivQm0v7TljpZCbF8IuHDKoFslCzypMkOBCmQGmZjSDI6UmxXCMRlz5QyqxBymTpyjmNOXXzrb2MFY7wvcMLlICrJgeCBBUqdRcMiNxVt/AE2gi/aArOHfQMrNAOjMFZRoDM7CsvOS5Zr+Em/7X/PmfPeC3yt5PC5BBzAbsupPKI01B/DTrtEP54AyZHNuZZGeVABBjUaTOgFa7DdlxZ/nT8K+PPudgPhzARroOZNW3Fw7QHCt1DqzDTYSACfX86086D4aJXhdR8JnzCxh2BTLBPMETEzBiN+emsiiOOu7uJZWyKtvnJYDUlWMhiQRGm0862v8Gtm4XRGYeHRIGUSA2RRDAxJGkTzFKuJcKCP/AC7N1kLC5L5T49fi8Jkbc/zM6Rm+Vv8AIxnBw2lsJuztvO6FbZOS5bJKK7RmYasm0AAnzivr+GcCZIEhY1j2T7v7HKsZ2bwKOSgAsHwk5SUDxIK5euuh8uVHYjs9iEFxh4wFLIAAc2ui6QZjyrLX1m5UdHh9PTcbbf6WFdr0LYZgozRczEb+EZpJ8vOvlmMus7HlJnqNelb+xZvk5O6ae5S4V20uaFIO5E6j/wAUZhuytm4oa5aytmMiANVJE+HQggc95rLz0viNNTwkH6oT+jPmOBw7uyoGAzEAsxyhc2kkE7ek1vuz3Z64sZ7li+kyQGzZlykZTIjQ5T8qZjsZZDhg1wQwaAwyyCSNI21PvXl3sbhQjBEZOfhYzImILTG/KmvE6f8AF/4c/wCGfUMTgCEse4tplhreUBSGE/eWOcQeVBcT4hesLma1d12IuSJMfFuBFBYbB3Lec2b9/MbeUZ8jLbbweLXQmAdIg5jtSHtHxO6CiX37y4JOYAqmUwB4AYzSGkjQhhvy2t8f7/cUlSv+fQ8xPaq6GH8y/wA/vLvGgyhI3+k7VqMJxvFZFzYZ3MfEO6EzsY7wco5V8vOIYOGWVO+nhj0A8qZWO1N1FCAtp/qufpcFXCMF8Ssybm+GbTE8aJdVt2xlOViz9CFaP92U9TQd/D3bltTfuZczaZ/CDA0y24l9+S8q9N4i5ltIE/lgBoz3SVteEDzED4QNV3qk4RUyG+57zOTB/mXWJ7vfWF2HxEsOVCfQ6Gkv+mnXGpbRCiKzZVId4X4+8KhQTvqRuPjpBY7aqzxcRnYbq2XJKBySQYgyem4FJu1GH721bIIDJbRbaTmuOsKSTA5SdTlGnpSCy6NbVEUhwSzvM+GNYGgAGnPlUqPUzk3Z9UXiSurNbKZQ8GNp02A1LRH0oLiN9rVpyi27OYMWOjM5kR3jZSQsMYAG4G9J+C4VQrJZBBYMTMyAxGUTOsZdwdm9DTDEWO7A2L84j4jGpDGTr6nWlPWjFFKFxyYosAG3NxbdttwqSDrGrsxlTJIg+cjSKg/CRcytcg/dzISCviyhn2zbiYNXlmvsDetm2kxmy89SYnlK+lFcOwxc/wCkToCYOszHKRBIFcynJu2t+hnyxxwrgljIHRYJUSep+fOm1u2iLEZVBzGYkcuvl9KUYniVu0VtSwdojKCTqR+dCdony2yly4c7kaEQAqnQCBzIn9mepyUYO3v92Xb6FP8ADLeKZr1pLz53y3A9xUCKIkjKQxggCJ61r7oS3bW2hygAADxMco00Ikzpua+aYfi5tN/LKgbyPh8JgAiBI1PtTHD9rcQQwL6EEZhusx8IB5SNdawU3XqQKS/MO49ZESbjK0kqgzAESzHwwNdYk7wByEZviVt0BNwEHQDTz5NMcgI8qY47g94hHzMzsHuQzKIVNFOYkjM5Ok+lLuMYUpiGDt3gUgmebFZKyNDB1JjWfWnlGbshqS5FRcrqzEAaACIBP5VUSNGDSesbBdyZ/etWcQYk5MkZ4Y59zOog6QD0B6VSrMwbwBVmCQIWdZBjQSAdPI1suCaL0xFxgC7DITB8wd/XevL0kgW/AAoA6nQFiSTqJ6aVVibgSECg6LJEkHMAdp31H5Ubc4YAyAsALoEAS2WTBDxqpErp5jSkFM0/CbePa2D3t1htodiNwS2pHLTTSjr1zFd3bm43jkLMErBylnB1IEiYB3o/scjWrJW49vRzlylYIgHMpGhBMn1mm/EcjISBmIEwOcdI1B6EQRWMtSKdV9DpUHjyZ3CcOxIdbjOCM2XwzGxC3AQDoTlMiREZhAMOsWz3FC3EGpKXGUkzPwuFjbbUExz2Me3y2RTZ7xXVAoU2yZGkljlgnQH36mhsLxW7aZjftnMwGXRUJAIEFSQI8W+/LWqTlTrb8icWufuJuLrjLJAw7ubak6EgwI0BJ2lpAMxqOtWnGX8oz3yPCCRuBO4mDPOq+K9oQyd4ha06nI6NoSrbNA3g6H11rO8S4oxRlGoLfIAbRPpUKkkmtxPxE4yq9h43FcwObEPtzCQeUapUMJbsu+XvMza6BUEdDoFn3rEPcdWAYqZ5cvQ8qZ4THd23eJE/CBzBIjYDURtVyTS2QLxMrWXBrsRwlcrZSQxIKkQpWCuzByeR261LDYnF2elwHqwRhzY6SG36DfeqMDxdmtjO4zRrG48zA0PlS/HYTFXLwZPgiczGFBH15DYVgpS4f8/SjulprFTirH2J4rdLK/c2yRvLlCNjOkhj7b1Z/GAjm4EuQ4ylVuoI2GYSQJ8PPrURaBUT8cAFllQY/wBMx845VaqwIqXqnRHwye7VFqdrxtlu/CBDKh1G7F1YakT8/aikx4xCEozpqwBkBtCxExI2g+9KMZhFZTyOwP8Aavezs2w6NpDAjoQZEgn5+/nWcqa2REtJwZTgrl67At4oM5YAKLnJiFlgDmWCdZFaLhVtku37ZZn7u3qzEsSzAEEAmFETEa9SaU8AxE37P8uCO7QEHcBtSZA1G8b6c61QwpW5iLkaOiR/0qwP6UamqtPJPqtvncf2bMnFzca6Pf5VL96PLuNe3nuAM5WxaOUEydbnrS3tFg8O63XvISVKAMoGYFgNCCQGGxhvlFH3WuAObQl+4tZR1M3OtTxPeILjWUVrjd2SvIn4WO45DrWGnLGd9W0vir/Dnsud/d9gmm4tfPpf+XHd8bf7PmGM4DbJINuRowZJAIYAg6a6gjQ0J/8AianWH+X9xX1v7ToO8hXypmXoco03/WofaLf4hXrb9H+/16nPlFreH3X0MDcxTF7iWgLa5WErrdeMy6tuBOXTwj1rzC8NVRBDFkRrmVdQdRIa4Pi1jwr03GlXIxJAW3bUNqxeSsmZYzv5SDOtFSluWLlnYZS5+IgGQqgbD+nyq03dP9EZuuV9THDH37VplFgLmjxhiW1gZROpEyI5fKjOynDAJa4fGwjKYJAEEkecQPkaaXrK/ELZPQKJJ578hvWd4zxAroLJtsJ6kGREajXf6UpztYx5MI2pZVt79Tcd+qiEAnbaB8+tJ8VgLhbO7BiATzWQMu5HLUjTyoTgGLuCWa07AxLcvY8qMx+IN25lUHKAR5Ekj6afvnzulH1cms9RzW51u892F2AJPuWj1Ov0p9g7AUUPgMKEGv7n9aZGw4TNlJ6DrrHtrzj9a104NeqXIku5l+1SWu8VgwNyNBmjKV28I9dZP90fFMf3rHMS7bZiYUMfwwPQ8tqCx11zcZSpXxEMzToTmMa89Ggcory5kVQSTzldToOZ2Py8vOk027ZDdlQkCBlYeQB1A6Rt+nrRdqyTqDlnYnTbqIjprQ64kTMCJ025/kJBknrQmLv5plYAGnMyY1n5U8WyRvdxIZf8XynYCD67AzFLnsXwc9skj8atBJ5xJmdBtVFl2ygKBE6mBy9f3pTfD21eJjMI8KiT5zJGmppKOAcsT3bhVkZbhLBYnURIMr1+83vQjMdcugEEgaDTTrr+etaO9wtXdotQA0AQBy6A1WvCknRdfT3rfI0wZn+9b4pG53gzzOh9aKwF82ypBg5hmnYqCDqCDzA+Qpz/AAxByH0/KvX4WrgAACJ2XNvvoCOgoyBwY37L9qjYPdOCylly+IQA0E5NNvEIA28q29ntETtYuf39vWsHxG7bY2lytauBVAu5SgzSxnWd1AAJ6DU7DU3+0FpU0IuGQMq6yOfi2mCTHlvUzWollHj5hFxTqQJ2i7cuqxYXK4JBkZoI0jaOvzisfiuJ3muZrjS2mUkn4hzkag8tuXuRxfEqzuyJIJBEk6HclpJJ+sQKTPegywmT8RnLoJEqdxv71Kt8mbdl1+47LJzTBiTm8yZJnlQtjEkhhoZEDy5k0Qt0jmMqyJIEAtB0A5b+k0M1zOIYQViMsAkbtpHmDVJE0eKgIPiBaJAE8hr5H0rsPd8JC3I09K87owSlzYaqRB5T61RdcgGVWZAnfTUmOWtVVjH/AGd4klp2a6SwA2EaN+ILoGME6SK0N7jAVznLBJhXYaEEAgkD4QZ9K+fYW5DQwzA7ax6dfan5x6kqpQBYhlER5ERz99/WsNTTXY30/ET0lUWbbC3wwBBBB2IMj3ooGvnZwuIsnvbJOVtfDzH+q2f0mm/C+1w0F5Y/1rJHzXcfWueWg+Y7nq6XjYulqKvsay4Nv3++dQAIIIMEbGlScZa438mxcuASAwKKDBIJGYg79a7FY7EoAfsp/wCYO3XKDUrSn2NJeJ0e5p04x4WkEPlaGXrlMHyg1VhL/F7iWyLNplurbKuVyqy3ldwxIYDRUbMB8OmmopNw98S8F7dtFJgiWLZT4WIERMSR1ozBYjiNoIqYm3FtbaqIcqFtZwn+VG1xlPUQDsI6tLSi1/VSdd6PN15rK9JugxrvE0ZMqYZxcCrbdCWS4ot3byFDn1BW3dg6aiOlWta4pb71yMKCLS37gLsSFIOUatAMKdBp50IeJY5ZPf4NBlVUXLlWwFV0XuB3f8shbjiRyY1Tc7QYkW+7OL4etrue57sQECdQoTRvT2rbytB36Y7+yMM9Tuwm/wActXMr3GRHa3bZlBJgm2k6GTHMT1of+LYb/wB0ezf0rJ8V4Vhnaft4ByIsKGZZtoqkwBJByz86aHiOC/8AkD/6nrPy49PsX5kuwv8As+JvSWQgkjXvIygfh8Jr27hHRRc+0iCAULsWBkSNwIkHp0rq6k5ujOUIxTdCy1x93CqzlDPiIOhA6fnTqxg7dz+ZnFxQ65ROiwy5i3nv7+ddXULSjF7Izg7dM8t4MuXezny5R4DJ7zmCh2EecU24fgwuu/Tz/sPnrOp0rq6pjCOWRs4JOw8DUDqdPXrNF8Qxtu0viIyhREcwYJOpA/Ca8rq1bpWTJ1R817TYi05VbQYICzAkyWZzLNqTzj60qNh0yvlBjXfcb8jMaxpFdXURe1mV9Su+wZQMwBzGV/CPuwdiNTt9KttZQBqNfDtA3g/KMp+fOurqtoZ7awTyQNup2+U/rTHBC4lwNlMg7jn1kdP3tXV1ck9VpgkasYsNZKG1DlpFwSCNtI5mJ50n+znf6/rPyryuqXqtKxvUcbCrNnLOZFeQViRIPJgeo/e9UWGa26sGGkHQ6a8j7wa8rqn8RIl67Rbcui9nmyryAGhTAyyZ9dfyqk2QlorcJBkkHwswzGQZ2B10HTlXldWX4ictTC9tiXquRnb2KIMISQDrA1YyTqeYr27xEAfDroBPlv8AP6V1dXppJlImL4DBAOW3kQYJk/uaoxbKGVl05mDm0JiurqEuoijFv4pEAgSCPKQVqOEVmkZWcabfLeurqNSWMLH0GuG7PgGbjHrlUAgDlLZhPLamPD8IiHXKxgjOzfdHRfunKdfWurq896k9RO2RJhhJU/yvBrJVjmtsCd45TyKmKrxdrDXSRcm1cjcSQY1EEDxabAia6uqdGbbo6NPXko4vddmEcM7RW8PaFvxMRnIbKwEsSYiNwTrVt3tijjKLbEkbD9Ziurq9FcWFkm7R3WQstkKOrODA9AZml2M4kcShQvlJ29DEzy1g+5rq6sJt7tdDOc2qF9jhMAljMbROvkeY/fSrf4Mi6sSOonQHXSduR9q6upR1W2vccHbRC9w64hAFrNI/FGhGs6ab1FUugaYXTlqK6uqo6jaXyLi7P//Z" style="width:400px;height:320px;"alt="Sample image">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-lg-7">
+
+      <!-- Grid row -->
+      <div class="row mb-3">
+
+        <!-- Grid column -->
+        <div class="col-1">
+          <i class="fas fa-share fa-lg indigo-text"></i>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-xl-10 col-md-11 col-10">
+          <h2 class="font-weight-bold mb-3"id="about3">Our Mission</h2>
+          <p  id=about4>Our mission is to deliver a very good service to our customer.Training people about our application usage in daily life basis and so on. </p>
+        </div>
+        <!-- Grid column -->
 
       </div>
+      <!-- Grid row -->
+
+      <!-- Grid row -->
+      <div class="row mb-3">
+
+        <!-- Grid column -->
+        <div class="col-1">
+          <i class="fas fa-share fa-lg indigo-text"></i>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-xl-10 col-md-11 col-10">
+          <h2 class="font-weight-bold mb-3">Our Vision</h2>
+          <p id="about5">Neighborhood Information System Team's vision : Very Soon,we areplanning to develop an android application for our web So that at least 70% of Rwandan population
+              will be able to access and use our application within two years to come  </p>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-1">
+          <i class="fas fa-share fa-lg indigo-text"></i>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-xl-10 col-md-11 col-10">
+          <h2 class="font-weight-bold mb-3">Target</h2>
+          <p id=about6>Rwandans</p>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!--Grid row-->
+
     </div>
-    <div class="aboutUs" id="aboutus" >
-   <div class="row"style="text-align: center;padding:50px;font-size: 60px;font-family: 'Playfair Display', serif; ">
-     <div class="col-md-2"></div>
-     <div class="col-md-8">
-       <h1 id="aboutus"><strong> ABOUT US</strong></h1>
-        <h3>NIS is a Web Application that is designed to help people  to  get  needed product  in  neighborhood
-            they are not familiar with,also it is very helpfull when you  want to advertise your Business</h3>
-           
-     </div>
-     <div class="col-md-2"></div>
-   </div>
-     
+    <!--Grid column-->
+
+  </div>
+  <!-- Grid row -->
+
+</section>
+<!-- end of sectionabout -->
+<!-- Section: Features v.3 -->   
+
+ 
     </div>
+ 
 
     <div class="content1" style="padding-top: 10px;">
 
@@ -70,10 +181,10 @@
         <div id="col-md-4">
 
           <div class="card" style="margin-right: 25px;margin-left:25px;">
-            <img class="card-img-top" style="width:350px;height:250px" src="https://pix10.agoda.net/geo/city/318/1_318_02.jpg?"
+            <img class="card-img-top" style="width:350px;height:250px" src="https://media.gettyimages.com/photos/kigali-city-panorama-picture-id623010484?s=2048x2048"
               alt="Card image cap">
             <div class="card-body">
-              <h3 class="card-title"style="font-style: oblique;font-family: 'Playfair Display', serif;">Good Neighbors Make Great Neighborhood!</h3>
+              <h3 class="card-title">Good Neighbors Make Great Neighborhood!</h3>
             </div>
           </div>
         </div>
@@ -85,7 +196,7 @@
             <img class="card-img-top" style="width:350px;height:250px" src="https://pbs.twimg.com/media/Dd4xXjvVQAI4ng_.jpg"
               alt="Card image cap">
             <div class="card-body">
-              <h3 class="card-title"style="font-style: oblique;font-family: 'Playfair Display', serif; " >A Good Neighbor Is A Welcome Blessing!</h3>
+              <h3 class="card-title">A Good Neighbor Is A Welcome Blessing!</h3>
             </div>
 
           </div>
@@ -93,20 +204,52 @@
         <div id="col-md-4">
 
           <div class="card">
-            <img class="card-img-top" style="width:380px;height:250px" src="https://www.tripsavvy.com/thmb/_qkmh9hHgr_76KiJJM08l5lbrLw=/2125x1411/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-584944092-5a799b6ac6733500374865ae.jpg"
+            <img class="card-img-top" style="width:380px;height:250px" src="https://media.gettyimages.com/photos/kigali-central-business-district-skyline-picture-id155370774?s=2048x2048"
               alt="Card image cap">
             <div class="card-body">
-              <h3 class="card-title" style="font-style: oblique;font-family: 'Playfair Display', serif; ">Don't Buy The House,Buy The Neighborhood !</h3>
+              <h3 class="card-title">Don't Buy The House,Buy The Neighborhood !</h3>
             </div>
           </div>
         </div>
       </div>
-
-    
-   
+      <div class="row">
+        <div id="col-md-4">
+            <div class="card" style="margin-right: 25px;margin-left:25px;">
+                <img class="card-img-top" style="width:350px;height:250px" src="https://media.gettyimages.com/photos/village-and-volcano-picture-id1139556574?s=2048x2048"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h3 class="card-title">Good fences make good neighbours.</h3>
+                </div>
+              </div>
+        </div>
+        <div id="col-md-4">
+            <div class="card" style="margin-right: 15px;margin-left:15px;">
+                <img class="card-img-top" style="width:350px;height:250px;height:250px" src="https://media.gettyimages.com/photos/rwanda-kigali-radisson-htl-and-convention-center-picture-id951668594?s=2048x2048"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h3 class="card-title">
+                      All human beings are my neighbors.  </h3>
+                </div>
+        </div>
 
     </div>
+    <div id="col-md-4">
+        <div class="card">
+            <img class="card-img-top" style="width:380px;height:250px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSh_n6MGpcCm5NSTr_Zksg94zPBpdIi5fJL3IIO7Nn9PL4i0uOu"
+              alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title">
+                  We share the same planet.  </h3>
+            </div>
+    </div>
+
+
+
+
+
+</div>
   </div>
+    </div>
 
   {% endblock %}
 </body>

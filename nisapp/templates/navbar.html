@@ -1,97 +1,74 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: "Lato", sans-serif;
-}
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: rgb(44, 46, 39);
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #E9D9D9;
-  display: block;
-  transition: 0.3s;
-}
-.sidenav a:hover {
-  color: rgb(240, 231, 236);
-}
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NIS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="base.css" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="base.js"></script>
 </head>
+
 <body>
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  {% if user.is_authenticated %}
-  <a href="{% url 'index' %}">Home</a>
-  <a href="http://127.0.0.1:8000/default/">map</a>
-  
- 
-      <li class="nav-item">
-            <a href="/newpost/">Post</a>
-  <a href="/accounts/password/change">Change Password</a>
+  <!-- <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="{% url 'welcome' %}" class="w3-bar-item w3-button"><b>{{user.neighbour.neighbourName}} </b>Neighbourhood</a>
+  </div> -->
 
-  <a href="/logout">Logout</a>
-  {% else %}
-  <a class='btn btn-default' href="/accounts/login">Login</a>
-  {% endif %}
-  <a class='btn btn-default' href="/accounts/register/">Sign up</a>
-</div>
-<div class="col-sm-4 col-md-4 navbar-center">
-    <form class="navbar-form" role="search" action="{% url 'search_product' %}">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search product" name="product">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-        </div>
-    </form>
-</div>
-
-<div class="col-sm-4 col-md-4 navbar-center">
-    <form class="navbar-form" role="search" action="{% url 'search_location' %}">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search location" name="product">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-        </div>
-    </form>
-</div>
-
-<span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; Menu</span>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="col-md-2">
+      <img src="/static/images/logo.png" style="height:40px;width:70px;margin-left:20px;">
 
 
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>
+    </div>
+    {% if user.is_authenticated %}
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'welcome'%}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/newpost/">Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Edit Profile</a>
+
+        </li>
+        <li class="nav-item"> <a class="nav-link" href=" http://127.0.0.1:8000/admin/">Admin</a></li>
+      </ul>
+      <div id="form" style="padding-right:400px;">
+        <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_product' %}">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search any product" name="product">
+          <button cl0ass="btn btn-default my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+      <a href="#" >
+          <form action="{% url 'logOut'%}" method="post">
+              {% csrf_token%}
+              <input type="submit" value="logOut">
+          </form>
+      </a><br>
+
+    </div>
+    {% else %}
+    <a class='btn btn-default' href="/accounts/login">Login</a>
+    {% endif %}
+
+  </nav>
+
+
 </body>
+
 </html>
