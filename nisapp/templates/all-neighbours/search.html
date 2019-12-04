@@ -1,36 +1,43 @@
 {%extends 'all-neighbours/base.html'%}
 {% block content %}
 {{block.super}}
-<div class="container">
-  <div class="row"style="color:black">
-      
+<div class="container-fluid"style="	background-image:url('https://pbs.twimg.com/media/DcvloebXcAAC-F1.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:80%;font-family:'Cardo', serif;">
+  <div class="row"style="color:black;padding:20px;text-align:center;font-size:30px;font-weight:500px;">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
           {% if product%}
-            <h2>Found {{ product|length }} of searched term {{message}}</h2>
-            
-          {% else %}
-            <h2> Found 0 product for the search term {{message}}</h2>
-          {% endif %}
-     
+          <h2>Found {{ product|length }} of searched term {{message}}</h2>
+          
+        {% else %}
+          <h2> Found 0 product for the search term {{message}}</h2>
+        {% endif %}
+   
+      </div>
+
+      <div class="col-md-3"></div>  
+          
   </div>
   <div class="row masonry-container">
   {% if product%}
     {% for a in product %}
-    <div class="item col-md-4">
-        <div class="well">
-    <div class="thumbnail">
-        <div class="card">
-        <div class="card-body" >
-    
-        <p>{{a.ProdType}} {{a.prodName}},  found in {{a.business.businessName}}.{{a.business.businessDesc}} in {{a.business.location}}</p>
-        <p>price:{{a.prodPrice}}</p>
-       
-        
-     
-        </div>
-          </div>
-          </div>
-          </div>
-          </div>
+
+<div class="col-md-3">
+ <!--  -->
+ <div class="card" style="margin-bottom:20px;">
+    <!-- <img class="card-img-top" src="{{a.business.businessImage.url}}" alt="Card image" style="width:250px;"> -->
+    <div class="card-body">
+      <h2 class="card-title"><strong>Found in {{a.business.businessName}}</strong></h2>
+      <h3 class="card-text" style="font-size:15px;"><strong>price:</strong>{{a.prodPrice}}</h3>
+      <h3 class="card-text" style="font-size:15px;"><strong>Location:</strong>{{a.business.location}}</h3>
+      
+    </div>
+  </div>
+
+
+<!--  -->
+</div>
+   
+
     {% endfor %}
   </div>
   {% endif %}

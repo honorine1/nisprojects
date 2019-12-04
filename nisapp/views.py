@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login,logout
 from .forms import UpdateProfileForm,PostForm,NeighbourhoodForm,BusinessForm,NewProfileForm,UserUpdate
-from .models import User,Profile,Post,Neighborhood,Business,Product
+from .models import User,Profile,Post,Neighborhood,Business,Product,Join
 
 # Create your views here.
 
@@ -11,16 +11,13 @@ def signUp(request):
     currentUser=request.user
     if request.method=='POST':
         form=UserUpdate(request.POST)
-        # profileform=CreateProfile(request.POST)
-        nform=NeighbourhoodForm(request.POST)
-        if form.is_valid()  and nform.is_valid():
+        
+        if form.is_valid():
             user=form.save()
             
           
             #neighbour
-            neighbour=nform.save(commit=False)
-            neighbour.user=user
-            neighbour=nform.save()
+          
 
             username=form.cleaned_data.get('username')
           
@@ -28,12 +25,12 @@ def signUp(request):
             return redirect('logIn')
     else:
         form=UserUpdate()
-        nform=NeighbourhoodForm()
+       
 
        
     return render(request,'registration/registration_form.html',{
             'form':form ,
-            'nform':nform
+          
         })
 
 
@@ -51,7 +48,7 @@ def logIn(request):
                 return redirect(request.POST.get('next'))
             else:
                 # return redirect('neighborhood',neighborhood_id=neighbors)
-                return redirect('index')
+                return redirect('welcome')
     else:
         form=AuthenticationForm()
     return render(request,'registration/login.html',{'form':form})
@@ -67,23 +64,28 @@ def logOut(request):
 def welcome(request):
     current_user = request.user
     neighbors =Neighborhood.objects.all()
-    # profile = Profile.objects.filter(user=current_user).first()
+    profile = Profile.objects.filter(user=current_user).first()
     return render(request,'all-neighbours/welcome.html')
 
 
 @login_required(login_url='/accounts/login/')
 def index(request):
     current_user = request.user
+    join = Join.objects.filter(user=current_user).first()
+    if (join):
+        return redirect('neighborhood',neighborhood_id=join.neighborhood.id)
     neighbors =Neighborhood.objects.all()
-    # profile = Profile.objects.filter(user=current_user).first()
+    profile = Profile.objects.filter(user=current_user).first()
     return render(request,'all-neighbours/index.html',{'neighbor':neighbors})
 
-# @login_required(login_url='/accounts/login/')
-# def joinFunc(request,neighborhood_id):
-#     join=Join(neighborhood_id=neighborhood.id, user_id=current_user.id)
-#     join.save
+@login_required(login_url='/accounts/login/')
+def joinFunc(request,neighborhood_id):
+    current_user = request.user
+    Neighbr = Neighborhood.objects.get(id=neighborhood_id) 
+    join=Join(neighborhood=Neighbr, user=current_user)
+    join.save()
     # profile = Profile.objects.filter(user=current_user).first()
-    # return redirect('neighborhood',neighborhood_id=neighborhood_id)
+    return redirect('neighborhood',neighborhood_id=neighborhood_id)
 
 
 @login_required(login_url='/accounts/login/')
@@ -124,7 +126,7 @@ def new_post(request):
             post = form.save(commit=False)
             post.user = current_user
             post.save()
-            return redirect('viewProduct')
+            return redirect('index')
     else:
         form = PostForm()
         return render(request,'all-neighbours/post_form.html',{"form":form})
@@ -178,27 +180,7 @@ def update_profile(request):
     return render(request,'all-neighbours/update_profile.html',{"form":form}) 
 
 
-###############################
-# @login_required(login_url='/accounts/login/')
-# def addprofile(request):
-#     current_user = request.user
-#     if request.method == 'POST':
-#         form = NewProfileForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             profile = form.save(commit=False)
-#             profile.user = current_user
-#             profile.save()
-#         return redirect('viewprofile')
-#     else:
-#         form = NewProfileForm
-#     return render(request, 'all-neighbours/profile.html', {"form": form})
 
-
-# @login_required(login_url='/accounts/login/')
-# def viewprofile(request):
-#     current_user = request.user
-#     profile = Profile.objects.filter(user = current_user).first()
-#     return render(request,' all-neighbours/viewprofile.html',{'profile':profile})
 # def project(request):
 #     name = request.POST.get('your_name')
 #     email = request.POST.get('email')
@@ -237,6 +219,7 @@ def search_product(request):
     if 'product' in request.GET and request.GET["product"]:
         search_term = request.GET.get("product")
         products = Product.search_by_prodName(search_term)
+        # products = Business.search_by_businessName(search_term)
         message = f"{search_term}"
         return render(request, 'all-neighbours/search.html',{"message":message,"product":products})
     else:

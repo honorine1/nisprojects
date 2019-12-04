@@ -2,25 +2,25 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-fluid" style="background-color:#C2F3EE;padding:30px;">
   {% if profile%}
 
   {%for profile in profile%}
   <div class="row" style="padding:20px">
-
+<div class="col-md-2"></div>
     <div class="col-md-4">
       <img class="center-block img-responsive img-circle" src="{{profile.profile_pic.url}}" alt="" style="width:200px; height:250px">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-4" style="margin-top:60px">
       <h1><strong>{{profile.user.username}}</strong></h1>
 
       <h3>{{profile.bio}}</h3>
       <h3>{{profile.contact}}</h3>
 
-      <a class="btn btn-sm btn-primary" href="{% url 'update_profile' %}"> Update Profile</a>
+      <a class="btn btn-sm btn-default" href="{% url 'update_profile' %}" > Update Profile</a>
 
 
-
+      <div class="col-md-2"></div>
 
 
     </div>

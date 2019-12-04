@@ -3,10 +3,10 @@
 {% load bootstrap4 %}
 {% block content%}
 <h1 class="text-center">Update Your Profile</h1>
-<div class="container">
+<div class="container-fluid"style="background-image:url('https://pbs.twimg.com/media/EA9a-IjWkAE7HPq.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:100%;font-family: 'Cardo', serif">
 	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
 			<form  action="{% url 'update_profile' %}" method="post" enctype="multipart/form-data">
 		        {%csrf_token%}
 
@@ -18,7 +18,7 @@
 		        
 	        </form>
 		</div>
-		<div class="col-md-2"></div>
+		<div class="col-md-4"></div>
 	
 
 	</div>

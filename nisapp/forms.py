@@ -13,8 +13,9 @@ class PostForm(forms.ModelForm):
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        exclude = ['user','profile']
+        exclude = ['admin']
 
+    
 
 class UpdateProfileForm(forms.ModelForm):
     class Meta:

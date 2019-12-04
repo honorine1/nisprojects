@@ -1,3 +1,4 @@
+
 {% load bootstrap4 %}
 {% load staticfiles %}
 
@@ -20,20 +21,28 @@
 </head>
 
 <body>
-<div class="container" style="background-image:url('https://www.tripsavvy.com/thmb/_qkmh9hHgr_76KiJJM08l5lbrLw=/2125x1411/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-584944092-5a799b6ac6733500374865ae.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:800px;filter: brightness(60%)" >
-  <div class="panel panel-default" style="width:400px;margin-top:50px;margin-left:300px;padding-top:250px;">
-    <div class="panel-body">
-      <form action="{% url 'new_post'%}" method="post"  enctype="multipart/form-data">
-
-        {% csrf_token%}
-        {% bootstrap_form form %}
-        <div class="form-group text-center">
-          <input type="submit" class="btn btn-primary sign-up-button" value="Post">
+<div class="container-fluid" style="background-image:url('https://content.r9cdn.net/rimg/kimg/38/de/e995f9a8-5add1147-1.jpg?width=1200&height=630&crop=false');background-repeat: no-repeat;background-size: cover;width: 100%;height:600px;" >
+ 
+ <div class="row">
+   <div class="col-md-3"></div>
+   <div class="col-md-6">
+      <div class="panel panel-default" >
+          <div class="panel-body">
+            <form action="{% url 'new_post'%}" method="post"  enctype="multipart/form-data">
+      
+              {% csrf_token%}
+              {% bootstrap_form form %}
+              <div class="form-group text-center">
+                <input type="submit" class="btn btn-primary sign-up-button" value="Post">
+              </div>
+              <input type="hidden" name="next" value="{{next}}">
+            </form>
+          </div>
         </div>
-        <input type="hidden" name="next" value="{{next}}">
-      </form>
-    </div>
-  </div>
+   </div>
+   <div class="col-md-3"></div>
+ </div>
+ 
 </div>
 
    {% block scripts %}

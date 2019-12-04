@@ -1,49 +1,45 @@
 {%extends 'all-neighbours/base.html'%}
 {% block content %}
 {{block.super}}
-<div class="container" style="font-family: 'ZCOOL XiaoWei', serif">
-    <h1 style="text-align: center;font-family: 'Bowlby One SC', cursive;margin-top: 30px">  Welcome, {{user.username}}. 
+<div class="container-fluid" style="background-image:url('https://pbs.twimg.com/media/EA9a-IjWkAE7HPq.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:100%;font-family: 'Cardo', serif">
+    <h1 style="text-align: center;font-family: 'Cardo', serif;padding-top: 30px;font-weight: 800px;font-size:40px;">  Welcome, {{user.username}}. 
     </h1>
     <div class="row">
-        <div class="col-md-8">
-                <!-- <form class="navbar-form" role="search" action="{% url 'search_product' %}">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search product" name="product">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                            </div>
-                        </div>
-                    </form> -->
-            <div class="card">
+        <div class="col-md-3"></div>
+
+        <div class="col-md-6"style="margin:20px;">
+              
+                    <h1 style="text-align: center;font-family: 'Cardo', serif;font-weight: 500px;font-size:30px;">Available products in {{business.businessName}}</h1>
+            <!--  -->
+            <!--  -->
+            
+            
+            
+            
+                    <div class="card" style="margin-left:30px;">
                 <div class="card-body">
 
-                    <h2>Available products:</h2>
+                   
                     {% for prod in product%}
-                    <p><strong></strong>{{prod.image}}</p>
-                    <p><strong></strong>{{prod.prodName}}</p>
-                    <p><strong>Product description:</strong>{{prod.ProdType}}</p>
-                    <p><stong>Product Price:</stong>{{prod.prodPrice}}</p>
-                    <p><stong>Product location:</stong>{{prod.business.location.location}}</p>
+                    
+                   <!-- <img  src="{{prod.prodImage.url}}" alt="Card image" style="width:250px;"> -->
+                    <h3><strong>Product Name:</strong>{{prod.prodName}}</h3>
+                    <h4><strong>Product description:</strong>{{prod.ProdType}}</h4>
+                    <h4><strong>Product Price:</strong>{{prod.prodPrice}}</h4>
+                    
                     
                     <hr>
                     {% endfor %}
-                    <a href="#" value=""><button class="btn btn-success btn-lg">Add product</button></a>
+                    <a href="" value=""><button class="btn btn-success btn-lg">Add product</button></a>
                    
                 </div>
             </div>
-            <!-- <div class="col-md-4">
-                <button> <a href="{% url 'welcome' %}">Go Back To THe Home Page</a></button>
-            </div> -->
+            
         </div>
+        <div class="col-md-3"></div>
        
     </div>
-    <!-- <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <button> <a href="{% url 'welcome' %}">Go Back To THe Home Page</a></button>
-        </div>
-        <div class="col-md-4"></div>
-    </div> -->
+
 
 </div>
 {% endblock %}

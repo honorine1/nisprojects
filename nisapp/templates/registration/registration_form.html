@@ -6,7 +6,7 @@ width: 100%;">
     <!-- Empty div -->
     <!-- <div class="col-md-1"></div> -->
     <div class="col-md-6">
-      <img src="https://www.tripsavvy.com/thmb/_qkmh9hHgr_76KiJJM08l5lbrLw=/2125x1411/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-584944092-5a799b6ac6733500374865ae.jpg" style="width: 500px;height:750px;">
+      <img src="https://www.tripsavvy.com/thmb/_qkmh9hHgr_76KiJJM08l5lbrLw=/2125x1411/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-584944092-5a799b6ac6733500374865ae.jpg" style="width: 500px;height:500px;">
     </div>
     <div class="col-md-4">
       {% if form.errors %}
@@ -22,7 +22,7 @@ width: 100%;">
           <form action="{% url 'signUp'%}" method="post" style="color:white">
             {% csrf_token %}
             {% bootstrap_form form %}
-            {% bootstrap_form nform %}
+           
             <div class="form-group">
               <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
             </div>

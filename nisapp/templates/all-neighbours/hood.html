@@ -32,86 +32,70 @@
         padding: 10px;
     }
 </style>
-<div class="container-fluid"style="background-image:url('https://www.tripsavvy.com/thmb/_qkmh9hHgr_76KiJJM08l5lbrLw=/2125x1411/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-584944092-5a799b6ac6733500374865ae.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:100%;filter: brightness(60%)">
-    <h1 style="text-align: center;padding:50px;list-style-type: none; display:inline;"> Welcome,{{user.username}}
-        .
-    </h1>
-    <div class="row">
-        {% for busines in business %}
-        <div style="margin:0px;height:30px;">
-            <ul style="display:inline;list-style-type: none;text-decoration: none;">
-                <li>
-                    <button class="nav-item dropdown"><a href="{%url 'viewBusinessDetails' busines.pk%}" style="text-decoration:none;color:black;display: block;text-transform:uppercase cursive;">{{busines.businessName}}</a></button>
-                </li>
-            </ul>
-
-        </div>
-        {% endfor %}
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8"><h1 style="font-family:'cardo',serif;text-align: center;list-style-type: none; display:inline;">{{user.username}}, Welcome to Our Neighborhood ,Enjoy Every Thing! {{user.join.neighborhood.neighborhood_name}}</h1>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<div class="container-fluid"style="background-image:url('http://classicresortlodge.com/wp-content/uploads/2018/12/DSC_2368.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:100%;font-family:'cardo',serif">
+    
+    <div class ="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"> 
+            
+            <h1> AVAILABLE BUSINESSES</h1></div>
+        <div class="col-md-4"></div>
+       
     </div>
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"> AVAILABLE BUSINESSES</div>
-        <div class="col-md-4"></div>
-    </div>
-    <div class="row">
-        {% for b in business%}
-        <div class="col-md-3">
-            <div class="card" style="width: 200px;">
-
-                <div class="card-body">
-
-                    <h5 class="card-title"><strong>Business name:</strong>{{b.businessName}}</h5>
-                    <p class="card-text"><strong>Business description:</strong>{{b.businessDesc}}</p>
-                    <p class="card-text">
-                        <stong>Neighborhood:</stong>{{b.neighborhood}}
-                    </p>
-                </div>
-
+            <div class="col-md-2"></div>
+           
+            {% for busines in business %}
+            <div style="margin:0px;height:30px;">
+                <ul style="display:inline;list-style-type: none;text-decoration: none;">
+                    <li>
+                        <button class="nav-item dropdown"><a href="{%url 'viewBusinessDetails' busines.pk%}" style="text-decoration:none;color:black;display: block;text-transform:uppercase cursive;">{{busines.businessName}}</a></button>
+                    </li>
+                </ul>
+    
             </div>
-        </div>
-        {% endfor %}
-
-
+            {% endfor %}
+            <div class="col-md-2"></div>
+        
     </div>
     <div class="row">
-        <div class="col-md-3"></div>
-
-        <div class="col-md-6">
-
-
-        </div>
-        <div class="col-md-3"></div>
-
-
-
+        <div class="col-md-4"></div>
+       
+        <div class="col-md-4"></div>
     </div>
+   
 
 
-
-
-    <div class="row">
-        <!-- <div class="col-md-3"></div> -->
-        <div class="col-md-6">
+    <div class="row"style="font-family:'cardo',serif">
+    
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
 
-                    <h2>POSTS:</h2>
+                    <h2 STYLE="padding:20px"><strong> RECENT POSTS</strong></h2>
 
 
                     {% for e in post %}
-                    <p><strong>Post name: </strong>{{e.name}}</p>
+                    
 
-                    <p>
+                    <h3>
 
-                        <strong>Post: </strong>
+                        
                         {% autoescape on %}
                         {{e.post| safe}}
                         {% endautoescape %}
-                    </p>
-                    <p><strong>Posted Date: </strong>{{e.posted_date}}</p>
+                    </h3>
+                    <h4><strong>Posted Date: </strong>{{e.posted_date}}</h4>
                     <hr>
                     {% endfor %}
-                    <a href="{%url 'new_post' %}" value=""><button class="btn btn-success btn-lg" style="height:50px;">Add
+                    <a href="{% url 'new_post' %}" value=""><button class="btn btn-success btn-lg" style="height:50px;">Add
                             Post</button></a>
 
                     <div class="col-md-3">
@@ -121,7 +105,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-2"></div>
     </div>
 
 </div>

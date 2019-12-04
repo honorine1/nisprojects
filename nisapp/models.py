@@ -65,7 +65,8 @@ class Neighborhood(models.Model):
     neighborhood_name=models.CharField(max_length=40,choices=nameChoose)
    
     location = models.ForeignKey(Location)
-    admin =  models.OneToOneField(User, on_delete=models.CASCADE)
+    # admin = models.ManyToManyField(User)
+    # admin =  models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.neighborhood_name
 
@@ -89,6 +90,10 @@ class Neighborhood(models.Model):
         occupants = self.update_occupants.update()
         return occupants
 
+class Join(models.Model):
+    user=models.OneToOneField(User)
+    neighborhood = models.ForeignKey(Neighborhood)
+
 class Business(models.Model):
     businessName=  models.CharField(max_length=50)
     businessDesc = models.TextField(max_length = 200)
@@ -108,6 +113,11 @@ class Business(models.Model):
     def filter_by_business(cls, id):
       product= Product.objects.filter(business_id=id)
       return product
+
+    @classmethod
+    def search_by_businessName(cls,search_term):
+                product= cls.objects.filter(businessName__icontains=search_term)
+                return product
 
 class Product(models.Model):
     prodName = models.CharField(max_length=50)

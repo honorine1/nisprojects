@@ -21,6 +21,7 @@ urlpatterns=[
     url(r'^search/', views.search_location, name='search_location'),
     url(r'^viewBusiness/', views.viewBusiness, name='viewBusiness'),
     url(r'^viewBusinessDetails/(\d+)', views.viewBusinessDetails, name='viewBusinessDetails'),
+    url(r'^join/(?P<neighborhood_id>\d+)',views.joinFunc,name = 'join'),   
  
     
     
