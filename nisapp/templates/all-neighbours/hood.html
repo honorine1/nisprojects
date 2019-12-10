@@ -24,17 +24,29 @@
     }
 
     li a:hover {
-        background-color: grey;
+        background-color: #339A83;
     }
 
     .row {
         margin: 20px;
         padding: 10px;
     }
+    .post{
+       color:grey;
+    }
 </style>
-<div class="row">
+ <link rel="stylesheet" type="static/css/text" href="css/base.css" >
+ <link rel="stylesheet" href="../../../static/css/bsn.css" >
+ <link rel="stylesheet" href="../../../static/css/bsn2.css" >
+ 
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<link rel="stylesheet" href="w3.css">
+ <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+
+
+<div class="row" style="margin-top:7%">
     <div class="col-md-2"></div>
-    <div class="col-md-8"><h1 style="font-family:'cardo',serif;text-align: center;list-style-type: none; display:inline;">{{user.username}}, Welcome to Our Neighborhood ,Enjoy Every Thing! {{user.join.neighborhood.neighborhood_name}}</h1>
+    <div class="col-md-8"><h1 style="font-family:'cardo',serif;text-align: center;font-size:30px;list-style-type: none; display:inline;color: #339A83"><strong>{{user.username}}, welcome to {{user.join.neighborhood}} Neighborhood! </strong></h1>
     </div>
     <div class="col-md-2"></div>
 </div>
@@ -44,7 +56,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-4"> 
             
-            <h1> AVAILABLE BUSINESSES</h1></div>
+            <h1 style="color:#339A83"> <strong> AVAILABLE BUSINESSES</strong></h1></div>
         <div class="col-md-4"></div>
        
     </div>
@@ -55,7 +67,7 @@
             <div style="margin:0px;height:30px;">
                 <ul style="display:inline;list-style-type: none;text-decoration: none;">
                     <li>
-                        <button class="nav-item dropdown"><a href="{%url 'viewBusinessDetails' busines.pk%}" style="text-decoration:none;color:black;display: block;text-transform:uppercase cursive;">{{busines.businessName}}</a></button>
+                        <button class="btn btn-outline-success "><a href="{%url 'viewBusinessDetails' busines.pk%}" style="text-decoration:none;color:black;display: block;text-transform:uppercase cursive;font-size:13px;"><strong>{{busines.businessName}}</strong></a></button>
                     </li>
                 </ul>
     
@@ -65,9 +77,26 @@
         
     </div>
     <div class="row">
-        <div class="col-md-4"></div>
-       
-        <div class="col-md-4"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+                <div class="form3"style="margin:50px;width:500px;">
+                        <form role="search" action="{% url 'search_product' %}">
+                            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 ">
+                              <div class="input-group" >
+                                <input type="search" style="font-size:15px;text-align:center;" placeholder="What is the product you are  searching for?" name="product" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                                <div class="input-group-append">
+                                  <button id="button-addon1" type="submit" class="btn btn-link text-info"><i class="fa fa-search"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            
+                        
+                           
+                           
+                          </form>
+                        </div>
+        </div>
+        <div class="col-md-2"></div>
     </div>
    
 
@@ -76,39 +105,38 @@
     
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-
-                    <h2 STYLE="padding:20px"><strong> RECENT POSTS</strong></h2>
-
-
-                    {% for e in post %}
-                    
-
-                    <h3>
-
-                        
-                        {% autoescape on %}
-                        {{e.post| safe}}
-                        {% endautoescape %}
-                    </h3>
-                    <h4><strong>Posted Date: </strong>{{e.posted_date}}</h4>
-                    <hr>
-                    {% endfor %}
-                    <a href="{% url 'new_post' %}" value=""><button class="btn btn-success btn-lg" style="height:50px;">Add
-                            Post</button></a>
-
-                    <div class="col-md-3">
-                        <a href="{%url 'new_business'%}" value=""><button class="btn btn-success btn-lg" style="height:50px;">Add
-                                business</button></a>
-                    </div>
+               
+                <div class="post"  style="margin-top:5%;width: 100%;height:100%;">
+                       
+                        <div class="poste" style="margin-top:5%;background: #f1f4f5c7; padding:20px;">
+                                <h2 style="padding:20px"><strong> RECENT POSTS</strong></h2>
+                                {% for e in post %}
+                                <div class="notice notice-lg notice-info">
+                                        <h3 style="color:black">
+        
+                                
+                                               <strong> Post : </strong> {% autoescape on %}
+                                                {{e.post| safe}}
+                                                {% endautoescape %}
+                                                <strong>Posted by {{e.user}}</strong>
+                                            </h3>
+                                            <h4 style="color:black"><strong>Posted Date: </strong>{{e.posted_date}}</h4>
+                                   
+                                </div>
+                                {% endfor %}
+                            </div>
                 </div>
-            </div>
+                
+                                       
+                </div>             
+                  
+
+          
+                
         </div>
         <div class="col-md-2"></div>
     </div>
 
-</div>
 {% endblock %}
 
 

@@ -9,7 +9,9 @@ body {
   font-weight: 400; 
   font-family:'Cardo', serif;
 }    
-  
+.btn btn-success btn-lg{
+border-bottom-left-radius: 50%;
+}
   
 
 /* .site-hero {
@@ -113,7 +115,7 @@ padding-left:20px;
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
+    background: rgb(37, 227, 233);
     color: #fff;
     transition: all 0.3s;
 }

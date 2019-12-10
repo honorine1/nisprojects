@@ -72,11 +72,27 @@ def welcome(request):
 def index(request):
     current_user = request.user
     join = Join.objects.filter(user=current_user).first()
+    print(join)
     if (join):
         return redirect('neighborhood',neighborhood_id=join.neighborhood.id)
     neighbors =Neighborhood.objects.all()
     profile = Profile.objects.filter(user=current_user).first()
-    return render(request,'all-neighbours/index.html',{'neighbor':neighbors})
+    return render(request,'all-neighbours/index.html',{'neighbors':neighbors})
+
+
+@login_required(login_url='/accounts/login/')
+def neighborhood(request,neighborhood_id):
+    current_user = request.user
+
+    
+    neighbors = Neighborhood.objects.get(id=neighborhood_id)
+    business = Business.objects.filter(neighborhood = neighbors.id).all()
+    posts = Post.objects.filter(neighborhood = neighbors.id).all()
+    profile = Profile.objects.filter(id=current_user.id).first()
+    
+    return render(request,'all-neighbours/hood.html',{'business':business,'neighbors':neighbors,'post':posts,'neighborhood_id':neighborhood_id})
+ 
+
 
 @login_required(login_url='/accounts/login/')
 def joinFunc(request,neighborhood_id):
@@ -89,16 +105,37 @@ def joinFunc(request,neighborhood_id):
 
 
 @login_required(login_url='/accounts/login/')
-def neighborhood(request,neighborhood_id):
-    
-    current_user = request.user
-    neighbors = Neighborhood.objects.get(id=neighborhood_id)
-    business = Business.objects.filter(neighborhood = neighbors.id).all()
-    posts = Post.objects.filter(neighborhood = neighbors.id).all()
-    profile = Profile.objects.filter(id=current_user.id).first()
-    
-    return render(request,'all-neighbours/hood.html',{'business':business,'neighbors':neighbors,'post':posts,'neighborhood_id':neighborhood_id})
- 
+# 
+def search_neighborhood(request):
+    neighborhoods = Neighborhood.objects.all()
+    # fitness = Fitness_activities.objects.all()
+    if 'neighborhoods' in request.GET and request.GET["neighborhoods"]:
+        search_term = request.GET.get("neighborhoods")
+        searched_neighborhood = Neighborhood.search_by_neighborhood_name(search_term)
+        message = f"{search_term}"
+        return render(request, 'all-neighbours/index.html',{"message":message,"searched_neighborhood": searched_neighborhood,"neighborhood":neighborhoods})
+    else:
+        message = "You haven't searched for any neighborhood"
+        return render(request, 'all-neighbours/index.html',{"message":message})
+
+# 
+
+@login_required(login_url='/accounts/login/')        
+def search_location(request):
+    location= request.GET.get("your location")
+    recipient=Neighborhood(location=location)
+    recipient.save()
+    search_location(location)
+    if 'location' in request.GET and request.GET["location"]:
+        search_term = request.GET.get("location")
+        location = Neighborhood.search_location(search_term)
+        message = f"{search_term}"
+        return render(request, 'all-neighbours/searchloc.html',{"message":message,"product":product})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-neighbours/searchloc.html',{"message":message})
+
+
 @login_required(login_url='/accounts/login/')
 def new_business(request):
 

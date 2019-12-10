@@ -1,0 +1,23 @@
+.notice {
+    margin-top: 1%;
+    padding: 15px;
+    background-color: #fafafa;
+    border-left: 6px solid #7f8484;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+       -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+            box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+}
+.notice-lg {
+    padding: 35px;
+    font-size: large;
+}
+.notice-info {
+    border-color: rgb(37, 227, 233);
+}
+.notice-info>strong {
+    color: rgb(37, 227, 233);
+}
+.notice-info>strong>a:hover{
+    text-decoration: none;
+}

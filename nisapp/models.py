@@ -89,6 +89,10 @@ class Neighborhood(models.Model):
     def update_occupants():
         occupants = self.update_occupants.update()
         return occupants
+    # def search_by_neighborhood_name(cls,search_term):
+    #     neighborhoods = cls.objects.filter(business__neighborhood_name__icontains=search_term)
+        # activities = cls.objects.filter(loca__location_name__contains=search_term)
+        # return neighborhoods
 
 class Join(models.Model):
     user=models.OneToOneField(User)

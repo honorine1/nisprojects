@@ -1,5 +1,6 @@
 {%extends 'all-neighbours/base.html'%}
 {% load static %}
+{% load bootstrap4%}
 {% block content %}
 {{block.super}}
 <!DOCTYPE html>
@@ -10,6 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="static/css/text" href="css/base.css" >
+    <link rel="stylesheet" href="../../../static/css/bsn.css" >
+    <link rel="stylesheet" href="../../../static/css/bsn2.css" >
+    
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="w3.css">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     <title>NIS</title>
 </head>
@@ -73,13 +79,36 @@
 
 
 <!--  -->
-<section class="site-hero" style="background-image:url('https://pbs.twimg.com/media/EA9a-IjWkAE7HPq.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:100%;" id="section-home" data-stellar-background-ratio="0.5">
-    <div class="container-fluid" >
-        <div class="neigh">
-                <div class="row intro-text align-items-center justify-content-center"style="margin:50px">
-                  <div class="col-md-3"></div>
-                  <div class="col-md-6 text-center">
-                      {% for n in neighbor %}
+
+
+
+
+
+<!-- <section class="site-hero" style="margin-top:5%; background-image:url('https://pbs.twimg.com/media/EA9a-IjWkAE7HPq.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:100%;" id="section-home" data-stellar-background-ratio="0.5"> -->
+    <div class="container-fluid" style="margin-top:5%;background-repeat: no-repeat;background-size: cover;width: 100%;height:100%;">
+        <!-- <div class="neigh"> -->
+                <!-- <div class="row intro-text align-items-center justify-content-center"style="margin:50px"> -->
+                  <!-- <div class="col-md-3"></div> -->
+                  <!-- <div class="col-md-6 text-center"> -->
+                      <!-- <div class="text-center header mt-5">
+                          <form class="w-100 mt-4" action="{% url 'search_neighborhood' %}">
+                            <input class="w-50 p-3" type="search" placeholder="Enter Your neighborhood" name="neighborhoods" aria-label="Search">
+                          </form>
+                          <div class="suggested"> <br>
+                            <p id="suggest" style="color:yellow"><strong> Suggested: Karama, Kagugu, Karuruma</strong>  </p>
+                          </div>
+                        </div> -->
+                        
+    <div class="container" style="margin-top:5%;background: #f1f4f5c7; padding:40px;">
+        {% for n in neighbors %}
+        <div class="notice notice-lg notice-info">
+            <strong><a href="{% url 'join' neighborhood_id=n.id %}" style="color:#339A83"  >{{n.neighborhood_name}}</a></strong> - Kigali
+        </div>
+        {% endfor %} 
+    </div>
+                       
+                     
+                      <!-- {% for n in neighbors %}
 
 
 
@@ -89,18 +118,23 @@
                           </div>
                       </div>
               
-                      {% endfor %}
-                          
-                  </div>
+                      {% endfor %}  -->
+
+
+
+
+
+
+                  <!-- </div> -->
 
                   <div class="col-md-3"></div>
                                
-                      </div>
-        </div>
+                      <!-- </div> -->
+        <!-- </div> -->
     
     </div>
-  </section>
-<!--  -->
+  <!-- </section> -->
+
 
 
 {% endblock %}

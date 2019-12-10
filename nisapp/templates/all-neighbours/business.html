@@ -2,7 +2,7 @@
 {% block content %}
 {{block.super}}
 <div class="container" style="font-family: 'ZCOOL XiaoWei', serif">
-    <h1 style="text-align: center;font-family: 'Bowlby One SC', cursive;margin-top: 30px"> {{user.username}}, Welcome
+    <h1 style="text-align: center;font-family: 'Bowlby One SC', cursive;margin-top: 30px"> {{user.username}} welcome
         to {{neighbors.neighbourhood_name}}
     </h1>
     <div class="row">
@@ -24,7 +24,7 @@
 
                     <hr>
                     {% endfor %}
-                    <a href="{%url 'new_business'%}" value=""><button class="btn btn-success btn-lg">Add business</button></a>
+                    <a href="{%url 'new_business'%}" value=""><button class="btn btn-outline-success btn-lg">Add business</button></a>
 
                 </div>
             </div>
@@ -33,6 +33,7 @@
     </div>
 
 </div>
+
 {% endblock %}
 
 <style>

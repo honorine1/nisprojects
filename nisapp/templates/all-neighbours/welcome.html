@@ -51,86 +51,164 @@
   margin-left:90px;
   padding-top: 10px;
 }
+.form3{
+  border-radius:50%;
+}
+/* #button-addon1{
+  width:30px;
+  height:30px;
+} */
+
   </style>
   <!--  -->
   <header>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item" style="background-image: url('https://d36tnp772eyphs.cloudfront.net/blogs/1/2019/06/Kigali-Rwanda-1200x854.jpg')">
-              <div class="carousel-caption d-none d-md-block">
-                  <div class="row intro-text align-items-center justify-content-center">
-                      <div class="col-md-10 text-center">
-                        <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:40px;font-color:black;"><strong>Discover your Neighborhood</strong></h1>
-                        
-                        <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More about Us</a></p>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">  
+        <div class="carousel-item active" style="background-image: url('https://pbs.twimg.com/media/DcvlogIXcAY4-ui.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="col-md-10 text-center">
+                <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:50px;color:sky;margin-bottom:60px;margin-left:50px"><strong>Discover your Neighborhood</strong></h1>
+               <div class="form3">
+                <form role="search" action="{% url 'search_product' %}">
+                    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 ">
+                      <div class="input-group" >
+                        <input type="search" style="font-size:15px;text-align:center;" placeholder="What is the product you are  searching for?" name="product" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                        <div class="input-group-append">
+                          <button id="button-addon1" type="submit" class="btn btn-link text-info"><i class="fa fa-search"></i></button>
+                        </div>
                       </div>
-                  </div>
+                    </div>
+                    
+                
+                   
+                   
+                  </form>
+                </div>
                
-              </div>
-            </div>
-          
-          <div class="carousel-item active" style="background-image: url('https://africansafarijourneys.com/wp-content/uploads/2019/04/Kigali-944x480.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-                <div class="col-md-10 text-center">
-                    <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:40px;font-color:black;"><strong>Discover your Neighborhood</strong></h1>
-                    
-                    <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More about Us</a></p>
-                  </div>
-            </div>
-          </div>
-         
-          <div class="carousel-item" style="background-image: url('https://pbs.twimg.com/media/DcvlogIXcAY4-ui.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-                <div class="col-md-10 text-center">
-                    <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:40px;font-color:black;"><strong>Discover your Neighborhood</strong></h1>
-                    
-                    <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More about Us</a></p>
-                  </div>
-            </div>
-          </div>
-          <div class="carousel-item" style="background-image: url('https://www.newtimes.co.rw/sites/default/files/main/articles/2018/12/11/railroad-tracks.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-                <div class="col-md-10 text-center">
-                    <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:40px;font-color:black;"><strong>Discover your Neighborhood</strong></h1>
-                    
-                    <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More about Us</a></p>
-                  </div>
-            </div>
-          </div>
-          <div class="carousel-item" style="background-image: url('https://ktpress.rw/wp-content/uploads/2017/06/8.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-                <div class="col-md-10 text-center">
-                    <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:40px;font-color:black;"><strong>Discover your Neighborhood</strong></h1>
-                    
-                    <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More about Us</a></p>
-                  </div>
-            </div>
-          </div>
-          <div class="carousel-item" style="background-image: url('https://media.tacdn.com/media/attractions-splice-spp-360x240/07/b3/f0/d5.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-                <div class="col-md-10 text-center">
-                    <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:40px;font-color:black;"><strong>Discover your Neighborhood</strong></h1>
-                    
-                    <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More about Us</a></p>
-                  </div>
+              <p style = "margin-bottom:150px;margin-left: 20px;"><a href="#section-about" class="smoothscroll btn btn-warning px-4 py-3">More about Us</a></p>
             </div>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+        <div class="carousel-item" style="background-image: url('http://www.kigalicc.com/uploads/9/8/2/4/98249186/dome-business-class-lounge_orig.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="col-md-10 text-center">
+              <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:50px;color:white;margin-bottom:60px;margin-left:50px"><strong>Discover your Neighborhood</strong></h1>
+              <div class="form3">
+                  <form role="search" action="{% url 'search_product' %}">
+                      <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 ">
+                        <div class="input-group" >
+                          <input type="search" style="font-size:15px;text-align:center;"placeholder="What is the product you are  searching for?" name="product" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                          <div class="input-group-append">
+                            <button id="button-addon1" type="submit" class="btn btn-link text-info"><i class="fa fa-search"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  
+                     
+                     
+                    </form>
+                  </div>
+                 
+              <p style="margin-bottom:150px;margin-left: 20px"><a href="#section-about" class="smoothscroll btn btn-warning px-4 py-3">More about Us</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('https://www.visitrwanda.com/wp-content/uploads/fly-images/2098/Kigali-Economic-Zone-Credit-Mazimpaka-JeanPierre-1280x853.jpg)">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="col-md-10 text-center">
+              <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:50px;color:white;margin-bottom:60px;margin-left:50px"><strong>Discover your Neighborhood</strong></h1>
+              <div class="form3">
+                  <form role="search" action="{% url 'search_product' %}">
+                      <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 ">
+                        <div class="input-group" >
+                          <input type="search"style="font-size:15px;text-align:center;" placeholder="What is the product you are  searching for?" name="product" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                          <div class="input-group-append">
+                            <button id="button-addon1" type="submit" class="btn btn-link text-info"><i class="fa fa-search" ></i></button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  
+                     
+                     
+                    </form>
+                  </div>
+                 
+              <p style ="margin-bottom:150px;margin-left:20px"><a href="#section-about" class="smoothscroll btn btn-warning px-4 py-3">More about Us</a></p>
+            </div>
+          </div>
+
+         
+
+        </div>
+        <div class="carousel-item" style="background-image: url('https://taarifa.rw/wp-content/uploads/2018/10/Rwandas-Economy-to-keep-growing.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="col-md-10 text-center">
+              
+              <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:50px;color:white;margin-bottom:60px;margin-left:50px"><strong>Discover your Neighborhood</strong></h1>
+              <div class="form3">
+                  <form role="search" action="{% url 'search_product' %}">
+                      <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 ">
+                        <div class="input-group" >
+                          <input type="search" style="font-size:15px;text-align:center;"placeholder="What is the product you are  searching for?" name="product" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                          <div class="input-group-append">
+                            <button id="button-addon1" type="submit" class="btn btn-link text-info"><i class="fa fa-search"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  
+                     
+                     
+                    </form>
+                  </div>
+                 
+              <p style="margin-bottom:150px;margin-left: 20px"><a href="#section-about" class="smoothscroll btn btn-warning px-4 py-3">More about Us</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('https://image.jimcdn.com/app/cms/image/transf/none/path/sa42828d9880ea9d8/image/i57b080e89039382a/version/1473717526/image.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="col-md-10 text-center">
+              <h1 class="site-heading site-animate"style="font-family:'cardo',serif;font-size:50px;color:white;margin-bottom:60px;margin-left:50px"><strong>Discover your Neighborhood</strong></h1>
+              <div class="form3">
+                  <form role="search" action="{% url 'search_product' %}">
+                      <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 ">
+                        <div class="input-group" >
+                          <input type="search" style="font-size:15px;text-align:center;"placeholder="What is the product you are  searching for?" name="product" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                          <div class="input-group-append">
+                            <button id="button-addon1" type="submit" class="btn btn-link text-info"><i class="fa fa-search"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  
+                     
+                     
+                    </form>
+                  </div>
+                 
+              <p style="margin-bottom:150px;margin-left: 20px"><a href="#section-about" class="smoothscroll btn btn-warning px-4 py-3">More about Us</a></p>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </header>
   <!--  <div class="row intro-text align-items-center justify-content-center">
                     <div class="col-md-10 text-center">
                       <h1 class="site-heading site-animate"><strong>Discover your Neighborhood</strong></h1>
@@ -173,7 +251,7 @@
 
         <!-- Grid column -->
         <div class="col-1">
-          <i class="fas fa-share fa-lg indigo-text"></i>
+          <i class="fas fa-share fa-lg grey-text"></i>
         </div>
         <!-- Grid column -->
 
@@ -192,7 +270,7 @@
 
         <!-- Grid column -->
         <div class="col-1">
-          <i class="fas fa-share fa-lg indigo-text"></i>
+          <i class="fas fa-share fa-lg grey-text"></i>
         </div>
         <!-- Grid column -->
 
@@ -212,7 +290,7 @@
 
         <!-- Grid column -->
         <div class="col-1">
-          <i class="fas fa-share fa-lg indigo-text"></i>
+          <i class="fas fa-share fa-lg grey-text"></i>
         </div>
         <!-- Grid column -->
 

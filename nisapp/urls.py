@@ -19,6 +19,7 @@ urlpatterns=[
     url(r'^viewProduct/', views.viewProduct, name='viewProduct'),
     url(r'^search/', views.search_product, name='search_product'),
     url(r'^search/', views.search_location, name='search_location'),
+     url(r'^search_neighborhood/', views.search_neighborhood, name='search_neighborhood'),
     url(r'^viewBusiness/', views.viewBusiness, name='viewBusiness'),
     url(r'^viewBusinessDetails/(\d+)', views.viewBusinessDetails, name='viewBusinessDetails'),
     url(r'^join/(?P<neighborhood_id>\d+)',views.joinFunc,name = 'join'),   

@@ -3,6 +3,7 @@
 {% block content %}
 <div class="container-fluid" style="font-family:'Cardo', serif;" >
     <h1 style="text-align: center;padding:20px;"><strong>Login</strong></h1>
+    <div class="form1" style="background-color:#F7FAFA">
   <div class="row" style="padding-top:100px;">
     
     <!-- Empty div -->
@@ -17,7 +18,7 @@
       <div class="panel panel-default">
 
         <div class="panel-heading">
-          <h3 class="text-center" style="color:white;font-size: 30px;"><strong>Login </strong></h3>
+          <h3 class="text-center" style="color:rgb(37, 227, 233);font-size: 30px;"><strong>Login </strong></h3>
         </div>
         <div class="panel-body">
 
@@ -25,8 +26,8 @@
             {% csrf_token %}
             {% bootstrap_form form%}
 
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-sm" value="Login">
+            <div class="form-group"style="margin-left:150px;">
+              <input type="submit" class="btn btn-default btn-sm" value="Login">
             </div>
 
 
@@ -35,7 +36,7 @@
             {% endif%}
 
           </form>
-          <p style="font-size: 30px;">don't have an account?<a class="text-center" style="font-size: 30px;"
+          <p style="font-size: 30px;color:rgb(37, 227, 233)">don't have an account?<a class="text-center" style="font-size: 30px;"
             href="{% url 'signUp'%}"><strong>sign up</strong></a></p>
         </div>
         
@@ -46,6 +47,7 @@
     <!-- empty div -->
     <div class="col-md-2"></div>
   </div>
+</div>
 </div>
 
 {% endblock %}

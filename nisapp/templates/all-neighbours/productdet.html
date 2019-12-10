@@ -1,41 +1,77 @@
 {%extends 'all-neighbours/base.html'%}
 {% block content %}
 {{block.super}}
-<div class="container-fluid" style="background-image:url('https://pbs.twimg.com/media/EA9a-IjWkAE7HPq.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;height:100%;font-family: 'Cardo', serif">
-    <h1 style="text-align: center;font-family: 'Cardo', serif;padding-top: 30px;font-weight: 800px;font-size:40px;">  Welcome, {{user.username}}. 
+<div class="container-fluid" style="margin-top:5%;background-repeat: no-repeat;background-size: cover;width: 100%;height:100%;font-family: 'Cardo', serif">
+    <h1 style="text-align: center;font-family: 'Cardo', serif;padding-top: 30px;font-weight: 800px;font-size:40px;">  
     </h1>
-    <div class="row">
+
+    <div class="container-fluid mb-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div class="row py-3">
+                            <div class="col-md-12">
+                                <h2 style="text-align: center;font-family: 'Cardo', serif;font-weight: 600;font-size:30px;">Available products in {{business.businessName}}</h2>
+                                <hr style="border-bottom:2px solid rgb(109, 109, 109); margin-bottom: -2%;">
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                                {% for prod in product%}
+                            <div class="col-md-3">
+                               
+                                <div class="card" style="margin-top:10%">
+                                    <div class="card-img"><img  src="{{prod.business.image.url}}" alt="Card image" width="100%"></div>
+                                    <div class="card-body">
+                                        <h3><strong>Name: </strong>{{prod.prodName}}</h3>
+                                        <h5><strong>Description: </strong>{{prod.ProdType}}</h5>
+                                        
+                                        <button type= "button" class="btn btn-outline-warning btn-block btn-sm">
+                                        <h4 class="pt-1 pb-2"><strong>Price: </strong>{{prod.prodPrice}} RWF</h4></button>
+                                    </div>
+                                </div>
+                            </div>
+                                {% endfor %}
+                            </div>
+                           >
+                               
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
         <div class="col-md-3"></div>
 
         <div class="col-md-6"style="margin:20px;">
               
                     <h1 style="text-align: center;font-family: 'Cardo', serif;font-weight: 500px;font-size:30px;">Available products in {{business.businessName}}</h1>
-            <!--  -->
-            <!--  -->
             
             
-            
-            
-                    <div class="card" style="margin-left:30px;">
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">  
+                           
                 <div class="card-body">
 
-                   
                     {% for prod in product%}
-                    
-                   <!-- <img  src="{{prod.prodImage.url}}" alt="Card image" style="width:250px;"> -->
+                  
+                   <img  src="{{prod.business.image.url}}" alt="Card image" style="width:250px;">
                     <h3><strong>Product Name:</strong>{{prod.prodName}}</h3>
                     <h4><strong>Product description:</strong>{{prod.ProdType}}</h4>
                     <h4><strong>Product Price:</strong>{{prod.prodPrice}}</h4>
                     
                     
                     <hr>
+                </div>
                     {% endfor %}
                     <a href="" value=""><button class="btn btn-success btn-lg">Add product</button></a>
                    
                 </div>
-            </div>
+              </div>
+            </div> -->
             
-        </div>
+        
         <div class="col-md-3"></div>
        
     </div>
